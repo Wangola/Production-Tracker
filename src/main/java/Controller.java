@@ -6,9 +6,14 @@ public class Controller {
   @FXML
   private Label lblOutput;
 
-  public void sayHello() {
-    lblOutput.setText("Hello FXML!");
+  @FXML
+  public void addProduct() {
+    System.out.println("Product Added");
+  }
 
+  @FXML
+  public void addRecord() {
+    System.out.println("Production Recorded");
   }
 
 }

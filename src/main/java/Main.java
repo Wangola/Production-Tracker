@@ -14,11 +14,11 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
       Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
 
-      Scene scene = new Scene(root, 300, 275);
+      Scene scene = new Scene(root, 580, 365);
 
       primaryStage.setTitle("FXML Welcome");
       primaryStage.setScene(scene);
       primaryStage.show();
-    }
+    } 
   }
 
