@@ -36,13 +36,13 @@
                      <children>
                         <Label text="Product Name" />
                         <Label text="Manufacter" GridPane.rowIndex="1" />
-                        <TextField GridPane.columnIndex="1" />
-                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField fx:id="txtProcName" GridPane.columnIndex="1" />
+                        <TextField fx:id="txtManufac" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                         <Label text="Item Type" GridPane.rowIndex="2" />
-                        <ChoiceBox prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <ChoiceBox fx:id="chbItemType" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                      </children>
                   </GridPane>
-                  <Button fx:id="productButton" layoutX="105.0" layoutY="252.0" mnemonicParsing="false" onAction="#addProduct" text="Add Product" />
+                  <Button fx:id="btnAddProc" layoutX="105.0" layoutY="252.0" mnemonicParsing="false" onAction="#addProduct" text="Add Product" />
                   <TableView layoutX="310.0" layoutY="34.0" prefHeight="200.0" prefWidth="236.0">
                     <columns>
                       <TableColumn prefWidth="96.0" text="Product Name" />
@@ -61,7 +61,7 @@
       </Tab>
       <Tab text="Produce">
          <content>
-            <AnchorPane fx:id="recordProduciton" minHeight="0.0" minWidth="0.0" onDragDetected="#addRecord" prefHeight="180.0" prefWidth="200.0">
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
                   <ListView layoutX="53.0" layoutY="68.0" prefHeight="200.0" prefWidth="200.0" />
                   <Label layoutX="104.0" layoutY="37.0" text="Choose Product">
@@ -69,13 +69,13 @@
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <ComboBox layoutX="298.0" layoutY="68.0" prefWidth="150.0" />
+                  <ComboBox fx:id="cboQuan" layoutX="298.0" layoutY="68.0" prefWidth="150.0" />
                   <Label layoutX="321.0" layoutY="37.0" text="Choose Quantity">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <Button fx:id="recordButton" layoutX="316.0" layoutY="209.0" mnemonicParsing="false" onAction="#addRecord" text="Record Production" />
+                  <Button fx:id="btnRecordProc" layoutX="316.0" layoutY="209.0" mnemonicParsing="false" onAction="#recordProduct" text="Record Production" />
                </children></AnchorPane>
          </content>
       </Tab>
