@@ -10,15 +10,15 @@ public class Main extends Application {
     launch(args);
   }
 
-    @Override
-    public void start(Stage primaryStage) throws Exception {
-      Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
+  @Override
+  public void start(Stage primaryStage) throws Exception {
+    Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
 
-      Scene scene = new Scene(root, 580, 365);
+    Scene scene = new Scene(root, 580, 365);
 
-      primaryStage.setTitle("Production Project");
-      primaryStage.setScene(scene);
-      primaryStage.show();
-    } 
+    primaryStage.setTitle("Production Project");
+    primaryStage.setScene(scene);
+    primaryStage.show();
   }
+}
 

@@ -15,25 +15,26 @@ import javafx.scene.control.TextField;
 public class Controller {
 
   @FXML
-  private TextField txtProcName;
+  private TextField txtProductName;
 
   @FXML
-  private TextField txtManufac;
+  private TextField txtManufacturer;
 
   @FXML
-  private ChoiceBox<?> chbItemType;
+  private ChoiceBox<String> chbItemType;
 
   @FXML
-  private Button btnAddProc;
+  private Button btnAddProduct;
 
   @FXML
-  private ComboBox<String> cboQuan;
+  private ComboBox<String> cboQuantity;
 
   @FXML
-  private Button btnRecordProc;
+  private Button btnRecordProduct;
 
   @FXML
   void addProduct(ActionEvent event) {
+    connectToDb();
     System.out.println("Product Added");
   }
 
@@ -42,11 +43,24 @@ public class Controller {
     System.out.println("Production Recorded");
   }
 
-  public void initialize(){
-    connectToDb();
+  public void initialize() {
+    // Options for choiceBox
+    chbItemType.getItems().add("AUDIO");
+    chbItemType.getItems().add("VISUAL");
+    chbItemType.getItems().add("AUDIO_MOBILE");
+    chbItemType.getItems().add("VISUAL_MOBILE");
+    chbItemType.getSelectionModel().selectFirst();
+
+    //for loop linked to a comboBox allowing to hold 10 options in the
+    // form of 1-10 and can be edited.
+    for (int count = 1; count <= 10; count++) {
+      cboQuantity.getItems().add(String.valueOf(count));
+    }
+    cboQuantity.setEditable(true);
+    cboQuantity.getSelectionModel().selectFirst();
   }
 
-  public static void connectToDb(){
+  public void connectToDb() {
     final String JDBC_DRIVER = "org.h2.Driver";
     final String DB_URL = "jdbc:h2:./res/Productdb";
 
@@ -66,12 +80,30 @@ public class Controller {
       //STEP 3: Execute a query
       stmt = conn.createStatement();
 
-      String sql = "SELECT * FROM PRODUCT";
+      String productName = txtProductName.getText();
+      String manufacturerName = txtManufacturer.getText();
+      String itemType = chbItemType.getValue();
+
+      // '"+variable+"' Inserts values into product database by taking the user inputs.
+      String insertSql = "INSERT INTO Product(product_name, product_type, manufacturer) "
+          + "VALUES ( '" + productName + "', '" + itemType + "', '" + manufacturerName + "' );";
+
+      stmt.executeUpdate(insertSql);
+
+      // SExecuting this query will select all the collumns in the product data base and
+      // return it resultSet.
+      String sql = "Select product_name, product_type, manufacturer"
+          + " FROM PRODUCT";
 
       ResultSet rs = stmt.executeQuery(sql);
+
+      // while loop to all data in DB
       while (rs.next()) {
         System.out.println(rs.getString(1));
+        System.out.println(rs.getString(2));
+        System.out.println(rs.getString(3));
       }
+      ;
 
       // STEP 4: Clean-up environment
       stmt.close();
@@ -83,6 +115,4 @@ public class Controller {
       e.printStackTrace();
     }
   }
-
-
 }
