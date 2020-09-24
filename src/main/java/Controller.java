@@ -44,12 +44,12 @@ public class Controller {
     System.out.println("Production Recorded");
   }
 
+  //Seeing if this push is refactored here
   public void initialize() {
-    // Options for choiceBox
-    chbItemType.getItems().add("AUDIO");
-    chbItemType.getItems().add("VISUAL");
-    chbItemType.getItems().add("AUDIO_MOBILE");
-    chbItemType.getItems().add("VISUAL_MOBILE");
+    // Options for choiceBox (grabs enums and outputs each code name)
+    for(ItemType item : ItemType.values()){
+      chbItemType.getItems().add(item.code);
+    }
     chbItemType.getSelectionModel().selectFirst();
 
     //for loop linked to a comboBox allowing to hold 10 options in the
@@ -85,7 +85,7 @@ public class Controller {
       String manufacturerName = txtManufacturer.getText();
       String itemType = chbItemType.getValue();
 
-      // '"+variable+"' Inserts values into product database by taking the user inputs.
+      // Inserts values into product database by taking the user inputs.
       final String insertSql = "INSERT INTO Product(product_name, product_type, manufacturer) "
           + "VALUES (?, ?, ?);";
       PreparedStatement ps = conn.prepareStatement(insertSql);
