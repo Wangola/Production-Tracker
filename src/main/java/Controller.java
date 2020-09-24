@@ -1,6 +1,7 @@
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -85,13 +86,17 @@ public class Controller {
       String itemType = chbItemType.getValue();
 
       // '"+variable+"' Inserts values into product database by taking the user inputs.
-      String insertSql = "INSERT INTO Product(product_name, product_type, manufacturer) "
-          + "VALUES ( '" + productName + "', '" + itemType + "', '" + manufacturerName + "' );";
+      final String insertSql = "INSERT INTO Product(product_name, product_type, manufacturer) "
+          + "VALUES (?, ?, ?);";
+      PreparedStatement ps = conn.prepareStatement(insertSql);
+      ps.setString(1, productName);
+      ps.setString(2, itemType);
+      ps.setString(3, manufacturerName);
 
-      stmt.executeUpdate(insertSql);
+      ps.executeUpdate();
 
-      // SExecuting this query will select all the collumns in the product data base and
-      // return it resultSet.
+      // Executing this query will select all the columns in the product data base and
+      // return it resultSet (Output).
       String sql = "Select product_name, product_type, manufacturer"
           + " FROM PRODUCT";
 
