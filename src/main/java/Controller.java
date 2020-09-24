@@ -44,7 +44,7 @@ public class Controller {
     System.out.println("Production Recorded");
   }
 
-  //Seeing if this push is refactored here
+
   public void initialize() {
     // Options for choiceBox (grabs enums and outputs each code name)
     for(ItemType item : ItemType.values()){
