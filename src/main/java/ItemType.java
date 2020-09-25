@@ -1,11 +1,13 @@
 public enum ItemType {
-  AUDIO("AU"),
-  VISUAL("VI"),
-  AUDIO_VISUAL("AM"),
-  VISUAL_MOBILE("VM");
+  //Creating new objects with one parameter
+  AU("AUDIO"),
+  VI("VISUAL"),
+  AM("AUDIO_MOBILE"),
+  VM("VISUAL_MOBILE");
 
   public final String code;
 
+  //Constructor
   ItemType(String code) {
     this.code = code;
   }
