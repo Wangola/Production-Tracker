@@ -47,9 +47,10 @@ public class Controller {
 
   public void initialize() {
     // Options for choiceBox (grabs enums and outputs each code name)
-    for(ItemType item : ItemType.values()){
+    for (ItemType item : ItemType.values()) {
       chbItemType.getItems().add(item.code);
     }
+
     chbItemType.getSelectionModel().selectFirst();
 
     //for loop linked to a comboBox allowing to hold 10 options in the
@@ -59,6 +60,13 @@ public class Controller {
     }
     cboQuantity.setEditable(true);
     cboQuantity.getSelectionModel().selectFirst();
+
+    // relp output needed (Temporary statements)
+    Product product1 = new Widget("iPod", "Apple", ItemType.AU);
+    System.out.println(product1.toString());
+    Product product2 = new Widget("Zune", "Microsoft", ItemType.AM);
+    System.out.println(product2.toString());
+
   }
 
   public void connectToDb() {

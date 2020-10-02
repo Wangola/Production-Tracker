@@ -11,6 +11,4 @@ public interface Item {
   void setManufacturer(String manufacturer);
   String getManufacturer();
 
-
-
 }

@@ -8,12 +8,12 @@ public abstract class Product implements Item {
 
   // Fields
   private int Id;
-  private String Type;
+  private ItemType Type;
   private String Manufacturer;
   private String Name;
 
   // Constructor
-  Product(String name, String manufacturer, String type) {
+  Product(String name, String manufacturer, ItemType type) {
     this.Name = name;
     this.Manufacturer = manufacturer;
     this.Type = type;
@@ -46,6 +46,5 @@ public abstract class Product implements Item {
   public void setManufacturer(String manufacturer) {
     this.Manufacturer = manufacturer;
   }
-
 
 }

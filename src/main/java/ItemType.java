@@ -12,11 +12,6 @@ public enum ItemType {
     this.code = code;
   }
 
-  private String code(){
-    return code;
-  }
-
-
 }
 
 
