@@ -21,7 +21,7 @@ public abstract class Product implements Item {
 
   // toString (returns data)
   public String toString() {
-    return "Name: " + Name + "\n" + "Manufacturer: " + Manufacturer + "\n" + "Type: " + Type;
+    return "Name: " + Name + "\n" + "Manufacturer: " + Manufacturer + "\n" + "Type: " + Type.code;
   }
 
   // Completing methods from interface Item (setters and getters)
