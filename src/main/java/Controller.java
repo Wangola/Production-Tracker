@@ -47,9 +47,10 @@ public class Controller {
 
   public void initialize() {
     // Options for choiceBox (grabs enums and outputs each code name)
-    for(ItemType item : ItemType.values()){
+    for (ItemType item : ItemType.values()) {
       chbItemType.getItems().add(String.valueOf(item));
     }
+
     chbItemType.getSelectionModel().selectFirst();
 
     //for loop linked to a comboBox allowing to hold 10 options in the
@@ -114,7 +115,6 @@ public class Controller {
         System.out.println(rs.getString(2));
         System.out.println(rs.getString(3));
       }
-      ;
 
       // STEP 4: Clean-up environment
       stmt.close();

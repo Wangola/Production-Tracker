@@ -17,13 +17,13 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<TabPane prefHeight="365.0" prefWidth="580.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+<TabPane prefHeight="500.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
   <tabs>
     <Tab text="Product Line">
       <content>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="337.0" prefWidth="585.0">
           <children>
-            <GridPane layoutX="12.0" layoutY="34.0" prefHeight="202.0" prefWidth="268.0">
+            <GridPane layoutX="22.0" layoutY="52.0" prefHeight="288.0" prefWidth="318.0">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -34,23 +34,32 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
               <children>
-                <Label text="Product Name" />
-                <Label text="Manufacturer " GridPane.rowIndex="1" />
+                <Label text="Product Name">
+                           <font>
+                              <Font size="14.0" />
+                           </font></Label>
+                <Label text="Manufacturer " GridPane.rowIndex="1">
+                           <font>
+                              <Font size="14.0" />
+                           </font></Label>
                 <TextField fx:id="txtProductName" GridPane.columnIndex="1" />
                 <TextField fx:id="txtManufacturer" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                <Label text="Item Type" GridPane.rowIndex="2" />
+                <Label text="Item Type" GridPane.rowIndex="2">
+                           <font>
+                              <Font size="14.0" />
+                           </font></Label>
                 <ChoiceBox fx:id="chbItemType" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
               </children>
             </GridPane>
-            <Button fx:id="btnAddProduct" layoutX="105.0" layoutY="252.0" mnemonicParsing="false" onAction="#addProduct" text="Add Product" />
-            <TableView layoutX="310.0" layoutY="34.0" prefHeight="200.0" prefWidth="236.0">
+            <Button fx:id="btnAddProduct" layoutX="133.0" layoutY="379.0" mnemonicParsing="false" onAction="#addProduct" prefHeight="25.0" prefWidth="103.0" text="Add Product" />
+            <TableView layoutX="368.0" layoutY="52.0" prefHeight="400.0" prefWidth="410.0">
               <columns>
                 <TableColumn prefWidth="96.0" text="Product Name" />
                 <TableColumn prefWidth="74.0" text="Manufacter" />
                 <TableColumn prefWidth="64.0" text="Item Type" />
               </columns>
             </TableView>
-            <Label layoutX="358.0" layoutY="6.0" text="Existing Products ">
+            <Label layoutX="503.0" layoutY="14.0" text="Existing Products ">
               <font>
                 <Font size="18.0" />
               </font>
@@ -63,19 +72,19 @@
       <content>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
           <children>
-            <ListView layoutX="53.0" layoutY="68.0" prefHeight="200.0" prefWidth="200.0" />
-            <Label layoutX="104.0" layoutY="37.0" text="Choose Product">
+            <ListView layoutX="31.0" layoutY="68.0" prefHeight="372.0" prefWidth="450.0" />
+            <Label layoutX="189.0" layoutY="24.0" prefHeight="27.0" prefWidth="135.0" text="Choose Product">
               <font>
-                <Font size="14.0" />
+                <Font size="18.0" />
               </font>
             </Label>
-            <ComboBox fx:id="cboQuantity" layoutX="298.0" layoutY="68.0" prefWidth="150.0" />
-            <Label layoutX="321.0" layoutY="37.0" text="Choose Quantity">
+            <ComboBox fx:id="cboQuantity" layoutX="557.0" layoutY="74.0" prefWidth="150.0" />
+            <Label layoutX="563.0" layoutY="38.0" prefHeight="27.0" prefWidth="137.0" text="Choose Quantity">
               <font>
-                <Font size="14.0" />
+                <Font size="18.0" />
               </font>
             </Label>
-            <Button fx:id="btnRecordProduct" layoutX="316.0" layoutY="209.0" mnemonicParsing="false" onAction="#recordProduct" text="Record Production" />
+            <Button fx:id="btnRecordProduct" layoutX="567.0" layoutY="143.0" mnemonicParsing="false" onAction="#recordProduct" prefHeight="25.0" prefWidth="129.0" text="Record Production" />
           </children>
         </AnchorPane>
       </content>
@@ -84,7 +93,7 @@
       <content>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
           <children>
-            <TextArea layoutX="190.0" layoutY="68.0" prefHeight="200.0" prefWidth="200.0" />
+            <TextArea layoutX="80.0" layoutY="63.0" prefHeight="358.0" prefWidth="628.0" />
           </children>
         </AnchorPane>
       </content>

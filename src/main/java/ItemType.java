@@ -1,6 +1,6 @@
 public enum ItemType {
   //Creating new objects with one parameter
-  AUDIO ("AU"),
+  AUDIO("AU"),
   VISUAL("VI"),
   AUDIOMOBILE("AM"),
   VISUALMOBILE("VM");

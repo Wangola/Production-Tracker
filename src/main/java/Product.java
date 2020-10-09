@@ -7,10 +7,10 @@ public abstract class Product implements Item {
   */
 
   // Fields
-  private int Id;
-  private ItemType Type;
-  private String Manufacturer;
-  private String Name;
+  public int Id;
+  public ItemType Type;
+  public String Manufacturer;
+  public String Name;
 
   // Constructor
   Product(String name, String manufacturer, ItemType type) {
