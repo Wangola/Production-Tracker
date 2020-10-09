@@ -1,11 +1,12 @@
-public class AudioPlayer extends Product implements MultiMediaControl {
+public class AudioPlayer extends Product implements MultimediaControl {
 
   //Fields
   public String SupportedAudioFormats;
   public String SupportedPlaylistFormats;
 
-  AudioPlayer(String name, String manufacturer, ItemType type, String supportedAudioFormats, String supportedPlaylistFormats) {
-    super(name, manufacturer, type);
+  //Constructor
+  AudioPlayer(String name, String manufacturer, String supportedAudioFormats, String supportedPlaylistFormats) {
+    super(name, manufacturer, ItemType.AUDIO);
 
     this.Name = name;
     this.Manufacturer = manufacturer;
@@ -15,11 +16,13 @@ public class AudioPlayer extends Product implements MultiMediaControl {
 
   }
 
+  //toString
   public String toString() {
     return "Name: " + Name + "\n" + "Manufacturer: " + Manufacturer + "\n" + "Type: " + Type.code + "\n" +
         "Supported Audio Formats: " + SupportedAudioFormats + "\n" + "Supported Playlist Formats: " + SupportedPlaylistFormats;
   }
 
+  //Setters
   @Override
   public void play() {
     System.out.println("Playing");

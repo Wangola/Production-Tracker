@@ -5,6 +5,7 @@ public enum ItemType {
   AUDIOMOBILE("AM"),
   VISUALMOBILE("VM");
 
+  //Field
   public final String code;
 
   //Constructor
