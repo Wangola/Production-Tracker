@@ -6,11 +6,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Date;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
 
@@ -35,6 +37,9 @@ public class Controller {
   private Button btnRecordProduct;
 
   @FXML
+  private TextArea txtAProduct;
+
+  @FXML
   void addProduct(ActionEvent event) {
     connectToDb();
     System.out.println("Product Added");
@@ -52,6 +57,7 @@ public class Controller {
       chbItemType.getItems().add(String.valueOf(item));
     }
 
+    // defaults to first enum type
     chbItemType.getSelectionModel().selectFirst();
 
     //for loop linked to a comboBox allowing to hold 10 options in the
@@ -59,8 +65,10 @@ public class Controller {
     for (int count = 1; count <= 10; count++) {
       cboQuantity.getItems().add(String.valueOf(count));
     }
+    // Sets number 1 to default and makes it editable.
     cboQuantity.setEditable(true);
     cboQuantity.getSelectionModel().selectFirst();
+
 
     // relp output needed (Temporary statements)
     Product product1 = new Widget("iPod", "Apple", ItemType.AUDIO);
@@ -87,6 +95,12 @@ public class Controller {
         p.next();
         p.previous();
       }
+
+      // Outputs info to textArea in GUI
+      ProductionRecord record = new ProductionRecord(0,0,"0", new Date());
+      System.out.println(record.toString());
+      txtAProduct.appendText(record.toString());
+
   }
 
   public void connectToDb() {

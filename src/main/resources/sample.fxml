@@ -93,7 +93,7 @@
       <content>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
           <children>
-            <TextArea layoutX="80.0" layoutY="63.0" prefHeight="358.0" prefWidth="628.0" />
+            <TextArea fx:id="txtAProduct" layoutX="80.0" layoutY="63.0" prefHeight="358.0" prefWidth="628.0" />
           </children>
         </AnchorPane>
       </content>

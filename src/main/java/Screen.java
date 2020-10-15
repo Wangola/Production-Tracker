@@ -1,4 +1,4 @@
-public class Screen implements ScreenSpec{
+public class  Screen implements ScreenSpec{
 
   //Fields
   String resolution;
@@ -14,6 +14,7 @@ public class Screen implements ScreenSpec{
   }
 
   // toString (returns data)
+  // This is different then what was posted on relp to match output wanted
   public String toString() {
     return "Resolution: " + resolution + "\n" + "Refresh rate: " + refreshRate + "\n" + "Response time: " + responseTime;
   }
