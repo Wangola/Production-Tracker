@@ -1,33 +1,49 @@
 import java.util.Date;
-import javax.xml.crypto.Data;
 
-public class ProductionRecord {
+public class ProductionRecord <T> {
 
   //Fields
-  int ProductionNumber;
-  int ProductID;
-  String SerialNumber;
-  Date DateProduced;
+  int productionNumber = 0;
+  // Changed int ProductID to a Generic <T> to accept any Type to be declared later
+  T productID;
+  String serialNumber;
+  Date dateProduced;
 
   // Constructor
   ProductionRecord(int productID){
-    ProductionNumber = 0;
-    SerialNumber = "0";
-    DateProduced = new Date();
+    productionNumber = 0;
+    serialNumber = "0";
+    dateProduced = new Date();
   }
 
-  // Overloaded Constructor
-  ProductionRecord(int productionNumber, int productID, String serialNumber, Date dateProduced){
-    this.ProductionNumber = productionNumber;
-    this.ProductID = productID;
-    this.SerialNumber = serialNumber;
-    this.DateProduced = dateProduced;
+  // Overloaded Constructor (not used because of new overloaded constructor that accepts product below)
+  ProductionRecord(int productionNumber, T productID, String serialNumber, Date dateProduced){
+    this.productionNumber = productionNumber;
+    this.productID = productID;
+    this.serialNumber = serialNumber;
+    this.dateProduced = dateProduced;
   }
+
+    // Week 10 Complete (serial number needs update)------------------------------------------------------------------------------------------------------------------
+    // Overloaded Constructor that accepts Product and int which holds number of items
+    ProductionRecord(Product product, int numbOfItems){
+      productionNumber = productionNumber+1;
+      dateProduced = new Date();
+
+      // Gives unsafe warning when using this type of assigning
+      // productID = (T) product.getName();
+
+      // Unique Serial number
+      serialNumber = product.getManufacturer().substring(0,3) + product.getType().code + "00" + numbOfItems++;
+    }
+    // Week 10 Complete (serial number needs update)------------------------------------------------------------------------------------------------------------------
+
+
 
   // toString()
   public String toString() {
-    return "Prod. Num: " + ProductionNumber + " " + "Product ID: " + ProductID  + " " + "Serial Num: " + SerialNumber
-        + " " + "Date: " + DateProduced;
+    return "Prod. Num: " + productionNumber + " " + "Product ID: " + productID  + " " + "Serial Num: " + serialNumber
+        + " " + "Date: " + dateProduced + "\n";
   }
   
   
@@ -36,36 +52,36 @@ public class ProductionRecord {
 
   //Getters
   int getProductionNumber(){
-    return ProductionNumber;
+    return productionNumber;
   }
 
-  int getProductID(){
-    return ProductID;
+  T getProductID(){
+    return productID;
   }
 
   String getSerialNumber(){
-    return SerialNumber;
+    return serialNumber;
   }
 
   Date getDateProduced(){
-    return DateProduced;
+    return dateProduced;
   }
 
   //Setters
   void setProductionNumber(int productionNumber){
-    this.ProductionNumber = productionNumber;
+    this.productionNumber = productionNumber;
   }
 
-  void setProductID(int productID){
-    this.ProductID = productID;
+  void setProductID(T productID){
+    this.productID = productID;
   }
 
   void setSerialNumber(String serialNumber){
-    this.SerialNumber = serialNumber;
+    this.serialNumber = serialNumber;
   }
 
   void setDateProduced(Date dateProduced){
-    this.DateProduced = dateProduced;
+    this.dateProduced = dateProduced;
   }
 
   // End of Accessors

@@ -8,9 +8,6 @@ public class MoviePlayer extends Product implements MultimediaControl {
     MoviePlayer(String name, String manufacturer, Screen screen, MonitorType monitorType) {
       super(name, manufacturer, ItemType.VISUAL);
 
-      this.Name = name;
-      this.Manufacturer = manufacturer;
-
       this.Screen = screen;
       this.MonitorType = monitorType;
     }
@@ -18,7 +15,7 @@ public class MoviePlayer extends Product implements MultimediaControl {
     //toString
     //Added "\n" after Screen to match formatting on relp
     public String toString() {
-      return "Name: " + Name + "\n" + "Manufacturer: " + Manufacturer + "\n" + "Type: " + Type.code + "\n" +
+      return "Name: " + getName() + "\n" + "Manufacturer: " + getManufacturer() + "\n" + "Type: " + getType().code + "\n" +
           "Screen: " + "\n" + Screen + "\n" + "Monitor Type: " + MonitorType;
     }
 

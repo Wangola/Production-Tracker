@@ -7,10 +7,10 @@ public abstract class Product implements Item {
   */
 
   // Fields
-  public int Id;
-  public ItemType Type;
-  public String Manufacturer;
-  public String Name;
+  private int Id;
+  private ItemType Type;
+  private String Manufacturer;
+  private String Name;
 
   // Constructor
   Product(String name, String manufacturer, ItemType type) {
@@ -30,6 +30,10 @@ public abstract class Product implements Item {
     return Id;
   }
 
+  public ItemType getType(){
+    return Type;
+  }
+
   public String getManufacturer() {
     return Manufacturer;
   }
@@ -46,5 +50,7 @@ public abstract class Product implements Item {
   public void setManufacturer(String manufacturer) {
     this.Manufacturer = manufacturer;
   }
+
+  public void setId(int Id){ this.Id = Id; }
 
 }

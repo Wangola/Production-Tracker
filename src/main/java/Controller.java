@@ -1,4 +1,3 @@
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -6,14 +5,19 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.Date;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.ListView;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 
 public class Controller {
@@ -37,17 +41,55 @@ public class Controller {
   private Button btnRecordProduct;
 
   @FXML
-  private TextArea txtAProduct;
+  private TableView<Product> tableView;
+
+  @FXML
+  private TableColumn<?, ?> productCol;
+
+  @FXML
+  private TableColumn<?, ?> manufacturerCol;
+
+  @FXML
+  private TableColumn<?, ?> ItemCol;
+
+  @FXML
+  private ListView<Product> productListView;
+
+  @FXML
+  private TextArea txtAProductLog;
+
+
+  // Creates observableList
+  ObservableList<Product> productLine = FXCollections.observableArrayList();
 
   @FXML
   void addProduct(ActionEvent event) {
     connectToDb();
+
+    setupProductTableview();
+    setupProductListView();
     System.out.println("Product Added");
   }
 
   @FXML
   void recordProduct(ActionEvent event) {
     System.out.println("Production Recorded");
+
+    // Not fully working yet (does not increment through product num)------------------------------------------------------------------------------------------------
+    // Testing combox box number
+    System.out.println(cboQuantity.getSelectionModel().getSelectedIndex());
+
+    // Makes product object to be passed in productionRecord object below
+    Product product = productListView.getSelectionModel().getSelectedItem();
+    // for loop that depends on the comboBox
+    for(int count = 0; count <= cboQuantity.getSelectionModel().getSelectedIndex(); count++){
+      // Creates object of productionRecord with the 3rd constructor
+      ProductionRecord productRecorded = new ProductionRecord(product, cboQuantity.getSelectionModel().getSelectedIndex());
+
+      // Appends text into textArea of Production Log tab
+      txtAProductLog.appendText(productRecorded.toString());
+    }
+    // Not fully working yet (does not increment through product num)------------------------------------------------------------------------------------------------
   }
 
 
@@ -96,12 +138,51 @@ public class Controller {
         p.previous();
       }
 
-      // Outputs info to textArea in GUI
-      ProductionRecord record = new ProductionRecord(0,0,"0", new Date());
-      System.out.println(record.toString());
-      txtAProduct.appendText(record.toString());
+//      // Outputs info to textArea in GUI without unique serial Number
+//      ProductionRecord record = new ProductionRecord(0,0,"0", new Date());
+//      System.out.println(record.toString());
+//      txtAProduct.appendText(record.toString());
+//      //
+
+
+      // Outputs info to textArea in GUI with unique serial Number
+      Widget product = new Widget("iPod", "Apple", ItemType.AUDIOMOBILE);
+      ProductionRecord productInfo = new ProductionRecord(product, 00);
+
+      // Assigning the product Name to productID (as casting it in constructor was giving me an unsafe operation warning)
+      productInfo.productID = product.getName();
+      System.out.println(productInfo);
+      txtAProductLog.setText(productInfo.toString());
 
   }
+
+  public void setupProductTableview(){
+
+    // Gets text from product label
+    String name = txtProductName.getText();
+
+    // Gets text from manufacturer label
+    String manufacturer = txtManufacturer.getText();
+
+    // Gets text from ItemType choice box
+    String type = chbItemType.getValue();
+
+    // Can keep Product class abstract and use concrete class widget which extends product
+    Widget product = new Widget(name, manufacturer, ItemType.valueOf(type));
+    productLine.add(product);
+    productCol.setCellValueFactory(new PropertyValueFactory("Name"));
+    manufacturerCol.setCellValueFactory(new PropertyValueFactory("Manufacturer"));
+    ItemCol.setCellValueFactory(new PropertyValueFactory("Type"));
+
+    // Add products to tableView
+    tableView.setItems(productLine);
+  }
+
+  public void setupProductListView(){
+
+    productListView.setItems(productLine);
+  }
+
 
   public void connectToDb() {
     final String JDBC_DRIVER = "org.h2.Driver";
@@ -150,6 +231,7 @@ public class Controller {
         System.out.println(rs.getString(2));
         System.out.println(rs.getString(3));
       }
+
 
       // STEP 4: Clean-up environment
       stmt.close();

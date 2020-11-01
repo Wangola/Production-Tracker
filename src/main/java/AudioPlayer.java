@@ -1,5 +1,6 @@
 public class AudioPlayer extends Product implements MultimediaControl {
 
+
   //Fields
   public String SupportedAudioFormats;
   public String SupportedPlaylistFormats;
@@ -8,9 +9,6 @@ public class AudioPlayer extends Product implements MultimediaControl {
   AudioPlayer(String name, String manufacturer, String supportedAudioFormats, String supportedPlaylistFormats) {
     super(name, manufacturer, ItemType.AUDIO);
 
-    this.Name = name;
-    this.Manufacturer = manufacturer;
-
     this.SupportedAudioFormats = supportedAudioFormats;
     this.SupportedPlaylistFormats = supportedPlaylistFormats;
 
@@ -18,7 +16,7 @@ public class AudioPlayer extends Product implements MultimediaControl {
 
   //toString
   public String toString() {
-    return "Name: " + Name + "\n" + "Manufacturer: " + Manufacturer + "\n" + "Type: " + Type.code + "\n" +
+    return "Name: " + getName() + "\n" + "Manufacturer: " + getManufacturer() + "\n" + "Type: " + getType().code + "\n" +
         "Supported Audio Formats: " + SupportedAudioFormats + "\n" + "Supported Playlist Formats: " + SupportedPlaylistFormats;
   }
 
