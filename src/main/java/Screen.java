@@ -1,20 +1,19 @@
 public class  Screen implements ScreenSpec{
 
   //Fields
-  String resolution;
-  int refreshRate;
-  int responseTime;
+  final String resolution;
+  final int refreshRate;
+  final int responseTime;
 
 
   //Constructor
-  Screen(String resolution, int refreshrate, int responsetime){
+  Screen(String resolution, int refreshRate, int responseTime){
     this.resolution = resolution;
-    this.refreshRate = refreshrate;
-    this.responseTime = responsetime;
+    this.refreshRate = refreshRate;
+    this.responseTime = responseTime;
   }
 
   // toString (returns data)
-  // This is different then what was posted on relp to match output wanted
   public String toString() {
     return "Resolution: " + resolution + "\n" + "Refresh rate: " + refreshRate + "\n" + "Response time: " + responseTime;
   }

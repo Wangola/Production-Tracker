@@ -2,7 +2,7 @@
 
 ## Overview
 Creator: William Angola.\
-This program was created as a school project that will use a GUI page to control/use data within a full database for the purpose of production.
+Project that uses a GUI page to control/use data within a full database for the purpose of production.
 
 ## Code
 
@@ -17,7 +17,7 @@ primaryStage.setTitle("Production Project");
 ```
 
 ##### **Controller.java** (09/17/2020)
-In charge for almost all code for this project by creating methods and fields for objects in sceneBuilder\
+Handles almost all code for this project by creating methods and fields for objects in sceneBuilder\
 *Controller Skeleton (class, field, constructor, and methods)*
 ```
 public class Controller {

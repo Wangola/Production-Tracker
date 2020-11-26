@@ -1,22 +1,21 @@
 public class MoviePlayer extends Product implements MultimediaControl {
 
     //Fields
-    public Screen Screen;
-    public MonitorType MonitorType;
+    public final Screen screen;
+    public final MonitorType monitorType;
 
     //Constructor
     MoviePlayer(String name, String manufacturer, Screen screen, MonitorType monitorType) {
       super(name, manufacturer, ItemType.VISUAL);
 
-      this.Screen = screen;
-      this.MonitorType = monitorType;
+      this.screen = screen;
+      this.monitorType = monitorType;
     }
 
     //toString
-    //Added "\n" after Screen to match formatting on relp
     public String toString() {
       return "Name: " + getName() + "\n" + "Manufacturer: " + getManufacturer() + "\n" + "Type: " + getType().code + "\n" +
-          "Screen: " + "\n" + Screen + "\n" + "Monitor Type: " + MonitorType;
+          "Screen: " + "\n" + screen + "\n" + "Monitor Type: " + monitorType;
     }
 
     //Setters

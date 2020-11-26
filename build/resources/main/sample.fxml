@@ -17,86 +17,141 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<TabPane prefHeight="500.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
-  <tabs>
-    <Tab text="Product Line">
+<TabPane prefHeight="534.0" prefWidth="923.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+   <Tab text="Employee">
       <content>
-        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="337.0" prefWidth="585.0">
-          <children>
-            <GridPane layoutX="22.0" layoutY="52.0" prefHeight="288.0" prefWidth="318.0">
-              <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-              </columnConstraints>
-              <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-              </rowConstraints>
-              <children>
-                <Label text="Product Name">
-                           <font>
-                              <Font size="14.0" />
-                           </font></Label>
-                <Label text="Manufacturer " GridPane.rowIndex="1">
-                           <font>
-                              <Font size="14.0" />
-                           </font></Label>
-                <TextField fx:id="txtProductName" GridPane.columnIndex="1" />
-                <TextField fx:id="txtManufacturer" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                <Label text="Item Type" GridPane.rowIndex="2">
-                           <font>
-                              <Font size="14.0" />
-                           </font></Label>
-                <ChoiceBox fx:id="chbItemType" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-              </children>
-            </GridPane>
-            <Button fx:id="btnAddProduct" layoutX="133.0" layoutY="379.0" mnemonicParsing="false" onAction="#addProduct" prefHeight="25.0" prefWidth="103.0" text="Add Product" />
-            <TableView fx:id="tableView" layoutX="368.0" layoutY="52.0" prefHeight="400.0" prefWidth="406.0">
-              <columns>
-                <TableColumn fx:id="productCol" prefWidth="135.0" text="Product Name" />
-                <TableColumn fx:id="manufacturerCol" prefWidth="135.0" text="Manufacturer" />
-                <TableColumn fx:id="ItemCol" prefWidth="135.0" text="Item Type" />
-              </columns>
-            </TableView>
-            <Label layoutX="503.0" layoutY="14.0" text="Existing Products ">
-              <font>
-                <Font size="18.0" />
-              </font>
-            </Label>
-          </children>
-        </AnchorPane>
+         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="508.0" prefWidth="1005.0">
+            <children>
+               <TextField fx:id="txtPersonalName" layoutX="250.0" layoutY="120.0" promptText="Full name" />
+               <TextField fx:id="txtUserPassword" layoutX="250.0" layoutY="192.0" promptText="Password" />
+               <Label layoutX="119.0" layoutY="120.0" text="Full Name">
+                  <font>
+                     <Font size="16.0" />
+                  </font>
+               </Label>
+               <Label layoutX="124.0" layoutY="192.0" text="Password">
+                  <font>
+                     <Font size="16.0" />
+                  </font>
+               </Label>
+               <Label layoutX="173.0" layoutY="54.0" text="Employee Info">
+                  <font>
+                     <Font size="18.0" />
+                  </font>
+               </Label>
+               <Label fx:id="lblEmployeeDetails" layoutX="488.0" layoutY="54.0" prefHeight="240.0" prefWidth="362.0">
+                  <font>
+                     <Font size="16.0" />
+                  </font>
+               </Label>
+               <Button fx:id="btnCreateUser" layoutX="181.0" layoutY="276.0" mnemonicParsing="false" onAction="#createUser" prefHeight="32.0" prefWidth="99.0" text="Login/Create" />
+               <Label layoutX="33.0" layoutY="422.0" text="Enter your complete name to be valid">
+                  <font>
+                     <Font size="14.0" />
+                  </font>
+               </Label>
+               <Label layoutX="33.0" layoutY="454.0" text="Password must contain (a lowercase letter, uppercase letter, and a special character) to be valid">
+                  <font>
+                     <Font size="14.0" />
+                  </font>
+               </Label>
+               <Label fx:id="lblEmployeeSuccess" layoutX="488.0" layoutY="308.0">
+                  <font>
+                     <Font size="16.0" />
+                  </font>
+               </Label>
+               <Label layoutX="34.0" layoutY="391.0" text="Requirements (faliure to do so will set some info to default):">
+                  <font>
+                     <Font size="14.0" />
+                  </font>
+               </Label>
+            </children>
+         </AnchorPane>
       </content>
-    </Tab>
-    <Tab text="Produce">
-      <content>
-        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-          <children>
-            <ListView fx:id="productListView" layoutX="31.0" layoutY="68.0" prefHeight="372.0" prefWidth="450.0" />
-            <Label layoutX="189.0" layoutY="24.0" prefHeight="27.0" prefWidth="135.0" text="Choose Product">
-              <font>
-                <Font size="18.0" />
-              </font>
+   </Tab>
+  <Tab text="Product Line">
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="515.0" prefWidth="953.0">
+      <GridPane layoutX="34.0" layoutY="53.0" prefHeight="287.0" prefWidth="306.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+        <children>
+          <Label text="Product Name">
+            <font>
+              <Font size="14.0" />
+            </font>
+          </Label>
+          <Label text="Manufacturer " GridPane.rowIndex="1">
+            <font>
+              <Font size="14.0" />
+            </font>
+          </Label>
+          <TextField fx:id="txtProductName" promptText="Product Name" GridPane.columnIndex="1" />
+          <TextField fx:id="txtManufacturer" promptText="Manufacturer" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+          <Label text="Item Type" GridPane.rowIndex="2">
+            <font>
+              <Font size="14.0" />
+            </font>
+          </Label>
+          <ChoiceBox fx:id="chbItemType" prefHeight="28.0" prefWidth="156.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+        </children>
+      </GridPane>
+      <Button fx:id="btnAddProduct" layoutX="125.0" layoutY="379.0" mnemonicParsing="false" onAction="#addProduct" prefHeight="29.0" prefWidth="112.0" text="Add Product" />
+      <TableView fx:id="tableView" layoutX="371.0" layoutY="52.0" prefHeight="400.0" prefWidth="539.0">
+        <columns>
+               <TableColumn fx:id="idCol" prefWidth="135.0" text="Id" />
+          <TableColumn fx:id="productCol" prefWidth="135.0" text="Product Name" />
+          <TableColumn fx:id="manufacturerCol" prefWidth="135.0" text="Manufacturer" />
+          <TableColumn fx:id="ItemCol" prefWidth="135.0" text="Item Type" />
+        </columns>
+      </TableView>
+      <Label layoutX="570.0" layoutY="14.0" text="Existing Products ">
+        <font>
+          <Font size="18.0" />
+        </font>
+      </Label>
+         <Label fx:id="lblProductLine" layoutX="34.0" layoutY="435.0">
+            <font>
+               <Font size="14.0" />
+            </font>
+         </Label>
+    </AnchorPane>
+  </Tab>
+  <Tab text="Produce">
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+      <children>
+        <ListView fx:id="productListView" layoutX="31.0" layoutY="68.0" prefHeight="375.0" prefWidth="589.0" />
+        <Label layoutX="258.0" layoutY="25.0" prefHeight="27.0" prefWidth="135.0" text="Choose Product">
+          <font>
+            <Font size="18.0" />
+          </font>
+        </Label>
+        <ComboBox fx:id="cboQuantity" layoutX="694.0" layoutY="68.0" prefWidth="150.0" />
+        <Label layoutX="701.0" layoutY="25.0" prefHeight="27.0" prefWidth="137.0" text="Choose Quantity">
+          <font>
+            <Font size="18.0" />
+          </font>
+        </Label>
+        <Button fx:id="btnRecordProduct" layoutX="699.0" layoutY="183.0" mnemonicParsing="false" onAction="#recordProduct" prefHeight="28.0" prefWidth="139.0" text="Record Production" />
+            <Label fx:id="lblRecordError" layoutX="699.0" layoutY="313.0">
+               <font>
+                  <Font size="14.0" />
+               </font>
             </Label>
-            <ComboBox fx:id="cboQuantity" layoutX="557.0" layoutY="74.0" prefWidth="150.0" />
-            <Label layoutX="563.0" layoutY="38.0" prefHeight="27.0" prefWidth="137.0" text="Choose Quantity">
-              <font>
-                <Font size="18.0" />
-              </font>
-            </Label>
-            <Button fx:id="btnRecordProduct" layoutX="567.0" layoutY="143.0" mnemonicParsing="false" onAction="#recordProduct" prefHeight="25.0" prefWidth="129.0" text="Record Production" />
-          </children>
-        </AnchorPane>
-      </content>
-    </Tab>
-    <Tab text="Production Log">
-      <content>
-        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-          <children>
-            <TextArea fx:id="txtAProductLog" layoutX="80.0" layoutY="63.0" prefHeight="358.0" prefWidth="628.0" />
-          </children>
-        </AnchorPane>
-      </content>
-    </Tab>
-  </tabs>
+      </children>
+    </AnchorPane>
+  </Tab>
+  <Tab text="Production Log">
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+      <children>
+        <TextArea fx:id="txtAProductLog" layoutX="55.0" layoutY="55.0" prefHeight="406.0" prefWidth="850.0" />
+      </children>
+    </AnchorPane>
+  </Tab>
 </TabPane>

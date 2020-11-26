@@ -8,7 +8,7 @@ public abstract class Product implements Item {
 
   // Fields
   private int Id;
-  private ItemType Type;
+  private final ItemType Type;
   private String Manufacturer;
   private String Name;
 
@@ -19,9 +19,17 @@ public abstract class Product implements Item {
     this.Type = type;
   }
 
+  // Overloaded constructor for DB
+  Product(int id, String name, String manufacturer, ItemType type) {
+    this.Id = id;
+    this.Name = name;
+    this.Manufacturer = manufacturer;
+    this.Type = type;
+  }
+
   // toString (returns data)
   public String toString() {
-    return "Name: " + Name + "\n" + "Manufacturer: " + Manufacturer + "\n" + "Type: " + Type.code;
+    return "Name: " + Name + "\n" + "Manufacturer: " + Manufacturer + "\n" + "Type: " + Type;
   }
 
   // Completing methods from interface Item (setters and getters)
@@ -30,7 +38,7 @@ public abstract class Product implements Item {
     return Id;
   }
 
-  public ItemType getType(){
+  public ItemType getType() {
     return Type;
   }
 
@@ -51,6 +59,8 @@ public abstract class Product implements Item {
     this.Manufacturer = manufacturer;
   }
 
-  public void setId(int Id){ this.Id = Id; }
+  public void setId(int Id) {
+    this.Id = Id;
+  }
 
 }

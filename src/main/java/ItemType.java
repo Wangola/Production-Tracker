@@ -2,8 +2,8 @@ public enum ItemType {
   //Creating new objects with one parameter
   AUDIO("AU"),
   VISUAL("VI"),
-  AUDIOMOBILE("AM"),
-  VISUALMOBILE("VM");
+  AUDIO_MOBILE("AM"),
+  VISUAL_MOBILE("VM");
 
   //Field
   public final String code;
@@ -12,6 +12,7 @@ public enum ItemType {
   ItemType(String code) {
     this.code = code;
   }
+
 
 }
 
