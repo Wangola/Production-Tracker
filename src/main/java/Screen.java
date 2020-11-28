@@ -1,13 +1,13 @@
-public class  Screen implements ScreenSpec{
+public class Screen implements ScreenSpec {
 
   //Fields
-  final String resolution;
-  final int refreshRate;
-  final int responseTime;
+  private final String resolution;
+  private final int refreshRate;
+  private final int responseTime;
 
 
   //Constructor
-  Screen(String resolution, int refreshRate, int responseTime){
+  Screen(String resolution, int refreshRate, int responseTime) {
     this.resolution = resolution;
     this.refreshRate = refreshRate;
     this.responseTime = responseTime;
@@ -15,23 +15,24 @@ public class  Screen implements ScreenSpec{
 
   // toString (returns data)
   public String toString() {
-    return "Resolution: " + resolution + "\n" + "Refresh rate: " + refreshRate + "\n" + "Response time: " + responseTime;
+    return "Resolution: " + resolution + "\n" + "Refresh rate: " + refreshRate + "\n"
+        + "Response time: " + responseTime;
   }
 
-  //Getters
-  @Override
-  public String getResolution() {
-    return resolution;
-  }
-
-  @Override
-  public int getRefreshRate() {
-    return refreshRate;
-  }
-
-  @Override
-  public int getResponseTime() {
-    return responseTime;
-  }
+  //Getters (Never Used)
+//  @Override
+//  public String getResolution() {
+//    return resolution;
+//  }
+//
+//  @Override
+//  public int getRefreshRate() {
+//    return refreshRate;
+//  }
+//
+//  @Override
+//  public int getResponseTime() {
+//    return responseTime;
+//  }
 
 }

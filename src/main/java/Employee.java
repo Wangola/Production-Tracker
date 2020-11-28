@@ -105,12 +105,20 @@ public class Employee {
     return mt.matches();
   }
 
-  public StringBuilder getName(){
+  public StringBuilder getName() {
     return this.name;
   }
 
-  public String getPassword(){
+  public String getPassword() {
     return this.password;
+  }
+
+  public String getUserName() {
+    return this.userName;
+  }
+
+  public String getEmail() {
+    return this.email;
   }
 
 }

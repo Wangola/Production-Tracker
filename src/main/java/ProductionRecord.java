@@ -3,22 +3,23 @@ import java.sql.Timestamp;
 public class ProductionRecord {
 
   //Fields
-  int productionNumber = 0;
+  private int productionNumber = 0;
   // Changed int ProductID to a Generic <T> to accept any Type to be declared later
-  int productID;
-  String serialNumber;
-  Timestamp dateProduced;
+  private final int productID;
+  private final String serialNumber;
+  private final Timestamp dateProduced;
 
-  // Constructor
-  ProductionRecord(int productID) {
-    productionNumber = 0;
-    serialNumber = "0";
-    this.productID = productID;
-    dateProduced = new Timestamp(System.currentTimeMillis());
-  }
+  // Constructor (Never Used)
+//  ProductionRecord(int productID) {
+//    productionNumber = 0;
+//    serialNumber = "0";
+//    this.productID = productID;
+//    dateProduced = new Timestamp(System.currentTimeMillis());
+//  }
 
   // Overloaded Constructor (not used because of new overloaded constructor that accepts product below)
-  ProductionRecord(int productionNumber, int productID, String serialNumber, Timestamp dateProduced) {
+  ProductionRecord(int productionNumber, int productID, String serialNumber,
+      Timestamp dateProduced) {
     this.productionNumber = productionNumber;
     this.productID = productID;
     this.serialNumber = serialNumber;
@@ -45,22 +46,25 @@ public class ProductionRecord {
 
   // toString()
   public String toString() {
-    // Created object of controller class to access dataBaseNames to print out in name in toString
+    // Created object of controller class to access dataBaseNames to print out name in toString
     // textArea.
-    Controller test = new Controller();
-    Product product = test.getDataBaseNames(productID);
+    Controller name = new Controller();
+    // Pulls set password from text file
 
-    return "Prod. Num: " + productionNumber + " Product Name: " + product.getName() + " Serial Num: "
+    Widget productName = name.getDataBaseNames(productID);
+
+    return "Prod. Num: " + productionNumber + " Product Name: " + productName.getName()
+        + " Serial Num: "
         + serialNumber
         + " Date: " + dateProduced + "\n";
   }
 
   // Start of Accessors
 
-  //Getters
-  int getProductionNumber() {
-    return productionNumber;
-  }
+  //Getters (Never Used)
+//  int getProductionNumber() {
+//    return productionNumber;
+//  }
 
   int getProductID() {
     return productID;
@@ -74,22 +78,25 @@ public class ProductionRecord {
     return dateProduced;
   }
 
-  //Setters
-  void setProductionNumber(int productionNumber) {
-    this.productionNumber = productionNumber;
-  }
+  //Setters (Never Used)
+//  void setProductionNumber(int productionNumber) {
+//    this.productionNumber = productionNumber;
+//  }
 
-  void setProductID(int productID) {
-    this.productID = productID;
-  }
+  // (Never Used)
+//  void setProductID(int productID) {
+//    this.productID = productID;
+//  }
 
-  void setSerialNumber(String serialNumber) {
-    this.serialNumber = serialNumber;
-  }
+  // (Never Used)
+//  void setSerialNumber(String serialNumber) {
+//    this.serialNumber = serialNumber;
+//  }
 
-  void setDateProduced(Timestamp dateProduced) {
-    this.dateProduced = dateProduced;
-  }
+  // (Never Used)
+//  void setDateProduced(Timestamp dateProduced) {
+//    this.dateProduced = dateProduced;
+//  }
 
   // End of Accessors
 

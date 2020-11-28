@@ -9,8 +9,8 @@ public abstract class Product implements Item {
   // Fields
   private int Id;
   private final ItemType Type;
-  private String Manufacturer;
-  private String Name;
+  private final String Manufacturer;
+  private final String Name;
 
   // Constructor
   Product(String name, String manufacturer, ItemType type) {
@@ -50,17 +50,19 @@ public abstract class Product implements Item {
     return Name;
   }
 
-  //Setters
-  public void setName(String name) {
-    this.Name = name;
-  }
+  //Setters (Never Used)
+//  public void setName(String name) {
+//    this.Name = name;
+//  }
 
-  public void setManufacturer(String manufacturer) {
-    this.Manufacturer = manufacturer;
-  }
+  // (Never Used)
+//  public void setManufacturer(String manufacturer) {
+//    this.Manufacturer = manufacturer;
+//  }
 
-  public void setId(int Id) {
-    this.Id = Id;
-  }
+  //Never used
+//  public void setId(int Id) {
+//    this.Id = Id;
+//  }
 
 }

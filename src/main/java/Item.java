@@ -6,9 +6,13 @@ public interface Item {
   // interface creates the variable and has other classes initialize them
 
   int getId();
-  void setName(String name);
+
+  // Not Used
+  //void setName(String name);
   String getName();
-  void setManufacturer(String manufacturer);
+
+  // Not Used
+  //void setManufacturer(String manufacturer);
   String getManufacturer();
 
 }
