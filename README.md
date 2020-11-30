@@ -1,8 +1,11 @@
 
 # Production Tracker Project
 
+*Production Tracker Description -*
+This Production Tracker project provides any wanting facility the solution to categorize products and record products into a range of databases while allowing employees to create unique products under their supervision. Employees can easily interact with this projects JavaFX built GUI to create accounts and login when wanting to interact with their employer’s product line. The product line format is simple, it displays any existing product found and employees can enter their new wanted product which is displayed in real time. With these existing products, employees can avoid headaches and increase productivity since they can record any product from the existing list with their desired amount. Once the production line is complete and all wanted products are recorded a descriptive and unique production log is created for employees to view.
+
 * What is this project?
-	* This is a production tracker project that was built using JavaFX and focused on utilizing H2 databases to store values entered by employees. Employees are allowed to store products into these databases and produce an updated production log if a change occurs. Coding style used for this program was object oriented with its focus on inheritance, abstraction, encapsulation, and polymorphism. (4 pillars)
+	* This is a production tracker project that was built using JavaFX and focused on utilizing H2 databases to store values entered by employees. Employees are allowed to store products into these databases and produce an updated production log if changes occurs. Coding style used for this program was object oriented with its focus on inheritance, abstraction, encapsulation, and polymorphism. (4 pillars)
 * Who made this project?
 	* Author: William Angola
 	* Created independently with some tips and hints from: TA's, Professor, and class mates.
