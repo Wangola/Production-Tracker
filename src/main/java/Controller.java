@@ -30,7 +30,10 @@ import javafx.util.Duration;
 
 // (Missing one quality of life update but not required for submission) have the productionLog also
 // output employee name after date (this could be done by adding another column to DB's to account
-// for employee could not figure out how to do (alt certain key to jump around tabs)
+// for employee could not figure out how to do (Another quality of life update: alt certain key
+// to jump around tabs)
+// Update window to have a log out option once user is logged in
+//
 
 // NOTES FOR LATER UPDATES-------------------------------------------------------------------------
 
@@ -862,8 +865,7 @@ public class Controller {
 
   /**
    * Compares the productID from production record database and product database to see if there is
-   * a match.
-   * If a match occurs then an object of Widget is created to return values of that product
+   * a match. If a match occurs then an object of Widget is created to return values of that product
    * row to use product name in productionRecord toString.
    *
    * @param givenID ProductId from productionRecord.

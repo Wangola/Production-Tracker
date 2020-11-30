@@ -19,8 +19,8 @@
 ![Production Project Final gif](https://user-images.githubusercontent.com/69935977/100537222-83537c80-31f4-11eb-9d75-486158cac9f9.gif)
 
 
-
 ## Documentation
+[JavaDoc](https://wangola.github.io/Production-Tracker/)
 
 ## Diagrams
 
@@ -30,23 +30,34 @@
 
 ## Getting Started
 
+If you wish to run this project on your local machine. Follow these steps:
+ * Download [Intellij IDEA Ultimate Version](https://www.jetbrains.com/idea/download/#section=windows) and download the latest version of [JavaFX](https://gluonhq.com/products/javafx/) .
+ * Once both are download watch [this](https://www.youtube.com/watch?v=LFvRMmkXZk0) video to set up SDK files in IntelliJ. 
+ * Once set up it is complete return to IntelliJ start up page and select (get from Version Control) it will ask for a URL and input the URL from this GitHub website and hit clone. 
+ * Once project is cloned you are going to want to change one line of code in the Controller class.
+ * Find the getDbPassword method and you are gonna want to change the path for the dbPassword.txt file to match to avoid a nullException error. 
+	 * Example: 
+		 * Current path: "C:\\Users\\William\\IdeaProjects\\Production\\src\\main\\java\\dbPassword.txt"
+		 * Changed to: [your path] + \\dbPassword.txt
+* Once all these steps are complete you should be able to run this project on your local machine.
 
 ## Built With
 * IDE used: 
-	* Intellij iDEA Ultimate 2020.2, focusing on Java development and created by JetBrains.
+	* Intellij IDEA Ultimate 2020.2, focusing on Java development and created by JetBrains.
 * Other software used:
 	* Scene Builder to create GUI interactions.
 * Resources used:
 	* Cave of Programming, Stack OverFlow, Youtube.
 
 ## Contributing
-
+If you wish to contribute to this project be sure to fork this repository and follow the steps in Getting Started to set up this project in your local device.  Once the Production Tracker project is working on your local device you can make any edits/additions to this project. Once satisfied upload edits/additions to your personal forked repository and make a New pull request that will be review by me.
 
 ## Author
 
 * William Angola
 
 ## License
+[License](License)
 
 
 ## Acknowledgments
