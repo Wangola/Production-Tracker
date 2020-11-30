@@ -26,102 +26,194 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.util.Duration;
 
-// NOTES-------------------------------------------------------------------------------------------
+// NOTES FOR LATER UPDATES-------------------------------------------------------------------------
 
-// CLEAN UP PROGRAM BY INSPECTING CODE AND ADDING JAVA DOC COMMENTS (Missing on quality of
-// life update but not required for submission) have the productionLog also output employee
-// name after date (this could be done by adding another column to DB's to account for employee)
-// could not figure out how to do (alt certain key to jump around tabs)
+// (Missing one quality of life update but not required for submission) have the productionLog also
+// output employee name after date (this could be done by adding another column to DB's to account
+// for employee could not figure out how to do (alt certain key to jump around tabs)
 
-// NOTES-------------------------------------------------------------------------------------------
+// NOTES FOR LATER UPDATES-------------------------------------------------------------------------
 
+/**
+ * Initializes skeletal function of production project. Allowing employees to login to interact with
+ * the database through the GUI.
+ *
+ * @author William Angola
+ */
 public class Controller {
 
+
+  /**
+   * Most outer layer of the GUI that holds all tabs.
+   */
   @FXML
   private TabPane tabPane;
 
+  /**
+   * Label that outputs when login is successful.
+   */
   @FXML
   private Label lblWelcomeBack;
 
+  /**
+   * Label that outputs info/errors to employee when trying to log in.
+   */
   @FXML
   private Label lblLogin;
 
+  /**
+   * Text field handling full name in employee login.
+   */
   @FXML
   private TextField txtPersonalName;
 
+  /**
+   * Text field handling password in employee login.
+   */
   @FXML
   private TextField txtPassword;
 
+  /**
+   * Second tab that allows employees to login.
+   */
   @FXML
   private Tab tabEmployeeLogin;
 
+  /**
+   * First tab that welcomes employee with info and buttons.
+   */
   @FXML
   private Tab tabWelcome;
 
+  /**
+   * Third tab that allows employees to create account.
+   */
   @FXML
   private Tab tabCreateEmployee;
 
+  /**
+   * Fourth tab that allows employees to enter a product into the product database.
+   */
   @FXML
   private Tab tabProductLine;
 
+  /**
+   * Fifth tab that allows employees to select and record a number of specific products.
+   */
   @FXML
   private Tab tabProduce;
 
+  /**
+   * Sixth tab that allows employees to view production records.
+   */
   @FXML
   private Tab tabProductionLog;
 
+  /**
+   * Text field handling full name in create employee.
+   */
   @FXML
   private TextField txtNewPersonalName;
 
+  /**
+   * Text field handling password in create employee.
+   */
   @FXML
   private TextField txtNewUserPassword;
 
+  /**
+   * Text field handling product name in product line.
+   */
   @FXML
   private TextField txtProductName;
 
+  /**
+   * Text field handling product manufacturer in product line.
+   */
   @FXML
   private TextField txtManufacturer;
 
+  /**
+   * Choice box handling item type in product line.
+   */
   @FXML
   private ChoiceBox<String> chbItemType;
 
+  /**
+   * Holds existing values from product database.
+   */
   @FXML
   private TableView<Product> tableView;
 
+  /**
+   * Holds existing product id's from product database.
+   */
   @FXML
   private TableColumn<?, ?> idCol;
 
+  /**
+   * Holds existing product's from product database.
+   */
   @FXML
   private TableColumn<Product, String> productCol;
 
+  /**
+   * Holds existing product manufacturer's from product database.
+   */
   @FXML
   private TableColumn<Product, String> manufacturerCol;
 
+  /**
+   * Holds existing product item's from product database.
+   */
   @FXML
-  private TableColumn<Product, ItemType> ItemCol;
+  private TableColumn<Product, ItemType> itemCol;
 
+  /**
+   * Outputs info/errors when adding a product.
+   */
   @FXML
   private Label lblProductLine;
 
+  /**
+   * Holds existing values from product database.
+   */
   @FXML
   private ListView<Product> productListView;
 
+  /**
+   * Gives a sample of digits to be used but could be edited by employee.
+   */
   @FXML
   private ComboBox<String> cboQuantity;
 
+  /**
+   * Outputs info/error when recording a production.
+   */
   @FXML
   private Label lblRecordError;
 
+  /**
+   * Holds existing production record database.
+   */
   @FXML
   private TextArea txtAProductLog;
 
+  /**
+   * Outputs employee info once employee has been created.
+   */
   @FXML
   private Label lblEmployeeDetails;
 
+  /**
+   * Outputs info/error when trying to create an employee.
+   */
   @FXML
   private Label lblEmployeeError;
 
-  // Event Handlers
+  /**
+   * When create employee in Welcome tab is clicked, jump to create employee.
+   */
   @FXML
   void activateCreateUser() {
 
@@ -132,6 +224,9 @@ public class Controller {
     tabPane.getSelectionModel().select(tabCreateEmployee);
   }
 
+  /**
+   * When login in Welcome tab is clicked, jump to login.
+   */
   @FXML
   void activateLogin() {
     // Activate Employee Login tab when button is hit
@@ -142,6 +237,9 @@ public class Controller {
 
   }
 
+  /**
+   * Adds product to the product database if inputs are valid.
+   */
   @FXML
   void addProduct() {
 
@@ -166,10 +264,10 @@ public class Controller {
       lblProductLine.setText("Please enter a valid product name");
       txtProductName.requestFocus();
       visiblePause.play();
-    }
-    // If manufacturer length is less than 3 it can make production record fail as it needs
-    // a manufacturer of at least length 3 for serial number
-    else if (productManufacturer.isEmpty() || productManufacturer.length() < 3) {
+
+      // If manufacturer length is less than 3 it can make production record fail as it needs
+      // a manufacturer of at least length 3 for a serial number
+    } else if (productManufacturer.isEmpty() || productManufacturer.length() < 3) {
       lblProductLine.setText("Please enter a valid manufacturer");
       txtManufacturer.requestFocus();
       visiblePause.play();
@@ -192,6 +290,10 @@ public class Controller {
 
   }
 
+  /**
+   * Creates employee and adds employee to the employee database if inputs are valid (it may default
+   * some values if incorrect).
+   */
   @FXML
   void createUser() {
 
@@ -262,6 +364,9 @@ public class Controller {
 
   }
 
+  /**
+   * Checks if employee credentials are correct.
+   */
   @FXML
   void loginUser() {
 
@@ -314,6 +419,7 @@ public class Controller {
         tabWelcome.setDisable(true);
       } else {
         lblLogin.setText("Incorrect Name or Password double check credentials");
+        txtPersonalName.requestFocus();
         lblWelcomeBack.setText("");
         visiblePause.play();
       }
@@ -325,6 +431,9 @@ public class Controller {
 
   }
 
+  /**
+   * Records product into production record database if inputs are valid.
+   */
   @FXML
   void recordProduct() {
 
@@ -345,9 +454,9 @@ public class Controller {
       lblRecordError.setText("Please select a product");
       productListView.requestFocus();
       visiblePause.play();
-    }
-    // If quantity is an integer
-    else if (isQuantityInt) {
+
+      // If quantity is an integer
+    } else if (isQuantityInt) {
       // Outputs text to GUI
       lblRecordError.setText("Product Recorded");
 
@@ -380,19 +489,19 @@ public class Controller {
 
       // Creates objects based on info from DB
       loadProductionLog();
-
-      // Populate the TextArea in the Production Log tab with info from productionLog (suppose to be here but unsure)
-      // as loadProductionLog() passes productionLog arrayList to showProduction
-      //showProduction(productionRun);
     }
 
 
   }
 
-
-  // Creates observableList
+  /**
+   * Allows the passing of a product list between setupProductLineTable and loadProductionList.
+   */
   final ObservableList<Product> productLine = FXCollections.observableArrayList();
 
+  /**
+   * Initialize specific methods and formats initial program start up.
+   */
   public void initialize() {
 
     // Disable
@@ -430,7 +539,12 @@ public class Controller {
 
   }
 
-  public String getDBPassword() {
+  /**
+   * Obtains saved database password from a file.
+   *
+   * @return Database password.
+   */
+  public String getDbPassword() {
 
     try {
       BufferedReader reader = new BufferedReader(new FileReader(
@@ -446,31 +560,41 @@ public class Controller {
 
       }
 
+      reader.close();
+
       // returns password in trim() to account for unwanted spaces in file
       return content.toString().trim();
-    } catch (IOException IO) {
+    } catch (IOException e) {
       return null;
     }
   }
 
-  // Recursive method made to reverse passwords in DB to avoid info leaks
+  /**
+   * Takes in the database password and reverses to match the correct database password format.
+   *
+   * @param pw Database password.
+   * @return Reverse database password.
+   */
   public String reverseString(String pw) {
-
+    // Recursive method made to reverse passwords in DB to avoid info leaks
     if (pw.isEmpty()) {
       return pw;
     }
 
-    //Calls itself recursively (substring returns a string of index indicated, charAt returns character at specified index)
+    //Calls itself recursively (substring returns a string of index indicated, charAt
+    // returns character at specified index)
     return reverseString(pw.substring(1)) + pw.charAt(0);
 
   }
 
+  /**
+   * Sets up TableView format. Adds products to TableView and ListView once loaded.
+   */
   public void setupProductLineTable() {
 
-    // Warning for Unchecked assignment here solution says assign variables to each column
     productCol.setCellValueFactory(new PropertyValueFactory<>("Name"));
     manufacturerCol.setCellValueFactory(new PropertyValueFactory<>("Manufacturer"));
-    ItemCol.setCellValueFactory(new PropertyValueFactory<>("Type"));
+    itemCol.setCellValueFactory(new PropertyValueFactory<>("Type"));
     idCol.setCellValueFactory(new PropertyValueFactory<>("Id"));
 
     // Add products to tableView
@@ -479,30 +603,32 @@ public class Controller {
 
   }
 
-  // Outputs db into Table View and listView
+  /**
+   * Loads current Product database values into the observable list.
+   */
   public void loadProductionList() {
 
-    final String JDBC_DRIVER = "org.h2.Driver";
-    final String DB_URL = "jdbc:h2:./res/Productdb";
+    final String Jdbc_Driver = "org.h2.Driver";
+    final String Db_Url = "jdbc:h2:./res/Productdb";
 
-    //  Database credentials
-    final String USER = "";
-    final String PASS = reverseString(getDBPassword());
+    // Database credentials
+    final String user = "";
+    final String pass = reverseString(getDbPassword());
     Connection conn;
     Statement stmt;
 
     try {
       // STEP 1: Register JDBC driver
-      Class.forName(JDBC_DRIVER);
+      Class.forName(Jdbc_Driver);
 
       //STEP 2: Open a connection
-      conn = DriverManager.getConnection(DB_URL, USER, PASS);
+      conn = DriverManager.getConnection(Db_Url, user, pass);
 
       //STEP 3: Execute a query
       stmt = conn.createStatement();
 
       // Executing this query will select all the columns in the product data base and
-      // return it resultSet (Output).
+      // return its resultSet (Output).
       String sql = "Select * FROM PRODUCT";
 
       ResultSet rs = stmt.executeQuery(sql);
@@ -535,6 +661,7 @@ public class Controller {
         // Gets manufacturerName from DB
         manufacturerName = rs.getString(4);
 
+        // Object of widget class to use abstract product class
         Widget product = new Widget(id, productName, manufacturerName, type);
         productLine.add(product);
 
@@ -548,28 +675,31 @@ public class Controller {
     }
   }
 
-  // Connects to the database and writes info provided in text fields to PRODUCT Database
+  /**
+   * Enters current user product values created into Product database.
+   */
   public void connectToDb() {
 
-    final String JDBC_DRIVER = "org.h2.Driver";
-    final String DB_URL = "jdbc:h2:./res/Productdb";
+    final String Jdbc_Driver = "org.h2.Driver";
+    final String Db_Url = "jdbc:h2:./res/Productdb";
 
     //  Database credentials
-    final String USER = "";
-    final String PASS = reverseString(getDBPassword());
+    final String user = "";
+    final String pass = reverseString(getDbPassword());
     Connection conn;
     Statement stmt;
 
     try {
       // STEP 1: Register JDBC driver
-      Class.forName(JDBC_DRIVER);
+      Class.forName(Jdbc_Driver);
 
       //STEP 2: Open a connection
-      conn = DriverManager.getConnection(DB_URL, USER, PASS);
+      conn = DriverManager.getConnection(Db_Url, user, pass);
 
       //STEP 3: Execute a query
       stmt = conn.createStatement();
 
+      // Fields taking text and values from textFields in productLine tab
       String productName = txtProductName.getText();
       String manufacturerName = txtManufacturer.getText();
       String itemType = chbItemType.getValue();
@@ -592,24 +722,28 @@ public class Controller {
     }
   }
 
-  // Inserts productionRun object into productionRecord database
+  /**
+   * Enters user created production records into the Production Record database.
+   *
+   * @param productionRun Current production records created.
+   */
   public void addToProductionDB(ArrayList<ProductionRecord> productionRun) {
 
-    final String JDBC_DRIVER = "org.h2.Driver";
-    final String DB_URL = "jdbc:h2:./res/Productdb";
+    final String Jdbc_Driver = "org.h2.Driver";
+    final String Db_Url = "jdbc:h2:./res/Productdb";
 
     //  Database credentials
-    final String USER = "";
-    final String PASS = reverseString(getDBPassword());
+    final String user = "";
+    final String pass = reverseString(getDbPassword());
     Connection conn;
     Statement stmt;
 
     try {
       // STEP 1: Register JDBC driver
-      Class.forName(JDBC_DRIVER);
+      Class.forName(Jdbc_Driver);
 
       //STEP 2: Open a connection
-      conn = DriverManager.getConnection(DB_URL, USER, PASS);
+      conn = DriverManager.getConnection(Db_Url, user, pass);
 
       //STEP 3: Execute a query
       stmt = conn.createStatement();
@@ -618,7 +752,7 @@ public class Controller {
       // productionRecord database
       for (ProductionRecord record : productionRun) {
 
-        // Inserts values into product database by taking the user inputs.
+        // Inserts values into product database by taking elements of productionRun ArrayList.
         final String insertSql =
             "INSERT INTO PRODUCTIONRECORD(product_id, serial_num, date_produced) "
                 + "VALUES (?, ?, ?)";
@@ -639,30 +773,32 @@ public class Controller {
     }
   }
 
-  // Creates objects based on info from DB
+  /**
+   * Loads current Production Record database values into an ArrayList named productionLog.
+   */
   public void loadProductionLog() {
 
-    final String JDBC_DRIVER = "org.h2.Driver";
-    final String DB_URL = "jdbc:h2:./res/Productdb";
+    final String Jdbc_Driver = "org.h2.Driver";
+    final String Db_Url = "jdbc:h2:./res/Productdb";
 
     //  Database credentials
-    final String USER = "";
-    final String PASS = reverseString(getDBPassword());
+    final String user = "";
+    final String pass = reverseString(getDbPassword());
     Connection conn;
     Statement stmt;
 
     try {
       // STEP 1: Register JDBC driver
-      Class.forName(JDBC_DRIVER);
+      Class.forName(Jdbc_Driver);
 
       //STEP 2: Open a connection
-      conn = DriverManager.getConnection(DB_URL, USER, PASS);
+      conn = DriverManager.getConnection(Db_Url, user, pass);
 
       //STEP 3: Execute a query
       stmt = conn.createStatement();
 
-      // Executing this query will select all the columns in the product data base and
-      // return it resultSet (Output).
+      // Executing this query will select all the columns in the productRecord database and
+      // return its resultSet (Output).
       String sql = "Select * FROM PRODUCTIONRECORD";
 
       ResultSet rs = stmt.executeQuery(sql);
@@ -695,6 +831,7 @@ public class Controller {
 
       }
 
+      // Call to showProduction in textArea
       showProduction(productionLog);
 
       // STEP 4: Clean-up environment
@@ -706,7 +843,11 @@ public class Controller {
 
   }
 
-  // Populate the TextArea in the Production Log tab with info from productionLog
+  /**
+   * Loads each value of production record database into textArea.
+   *
+   * @param productionLog Current production record database values
+   */
   public void showProduction(ArrayList<ProductionRecord> productionLog) {
 
     // Enhanced for loop of type ProductionRecord passing each value of productionLog to
@@ -719,35 +860,44 @@ public class Controller {
 
   }
 
-  // Method made to access PRODUCT DB names to use for textArea that is
-  // (called in ProductionRecord toString())
+  /**
+   * Compares the productID from production record database and product database to see if there is
+   * a match.
+   * If a match occurs then an object of Widget is created to return values of that product
+   * row to use product name in productionRecord toString.
+   *
+   * @param givenID ProductId from productionRecord.
+   * @return A Widget object if match is successful.
+   */
   public Widget getDataBaseNames(int givenID) {
 
-    final String JDBC_DRIVER = "org.h2.Driver";
-    final String DB_URL = "jdbc:h2:./res/Productdb";
+    final String Jdbc_Driver = "org.h2.Driver";
+    final String Db_Url = "jdbc:h2:./res/Productdb";
 
     //  Database credentials
-    final String USER = "";
-    final String PASS = reverseString(getDBPassword());
+    final String user = "";
+    final String pass = reverseString(getDbPassword());
     Connection conn;
     PreparedStatement stmt;
 
     try {
       // STEP 1: Register JDBC driver
-      Class.forName(JDBC_DRIVER);
+      Class.forName(Jdbc_Driver);
 
       //STEP 2: Open a connection
-      conn = DriverManager.getConnection(DB_URL, USER, PASS);
+      conn = DriverManager.getConnection(Db_Url, user, pass);
 
       // SQL Where to filter product_id to find exact product name needed
       String sql = "Select * FROM PRODUCT WHERE ID = ?";
 
       stmt = conn.prepareStatement(sql);
 
+      // Sets productionRecord ID to find a match
       stmt.setInt(1, givenID);
 
       ResultSet rs = stmt.executeQuery();
 
+      // Looks for product info
       if (rs.next()) {
 
         String productName = rs.getString("product_name");
@@ -777,15 +927,19 @@ public class Controller {
     return null;
   }
 
-  // Method made to access PRODUCTION RECORD DB to get the amount products made for a certain type
-  // (called in recordProduct)
+  /**
+   * Finds current amount of a certain product recorded.
+   *
+   * @param givenID ProductId from listView in recordProduct.
+   * @return Current amount of a specific product that has been recorded.
+   */
   public int getCurrentTypeValue(int givenID) {
-    final String JDBC_DRIVER = "org.h2.Driver";
-    final String DB_URL = "jdbc:h2:./res/Productdb";
+    final String Jdbc_Driver = "org.h2.Driver";
+    final String Db_Url = "jdbc:h2:./res/Productdb";
 
     //  Database credentials
-    final String USER = "";
-    final String PASS = reverseString(getDBPassword());
+    final String user = "";
+    final String pass = reverseString(getDbPassword());
     Connection conn;
     PreparedStatement stmt;
 
@@ -793,20 +947,22 @@ public class Controller {
 
     try {
       // STEP 1: Register JDBC driver
-      Class.forName(JDBC_DRIVER);
+      Class.forName(Jdbc_Driver);
 
       //STEP 2: Open a connection
-      conn = DriverManager.getConnection(DB_URL, USER, PASS);
+      conn = DriverManager.getConnection(Db_Url, user, pass);
 
       // SQL Where to filter product_id to find exact product amount needed
       String sql = "Select * FROM PRODUCTIONRECORD WHERE product_id = ?";
 
       stmt = conn.prepareStatement(sql);
 
+      // Sets product ID to find a match
       stmt.setInt(1, givenID);
 
       ResultSet rs = stmt.executeQuery();
 
+      // If a current product exists keep obtaining number.
       while (rs.next()) {
 
         // Gets serialNum
@@ -831,25 +987,31 @@ public class Controller {
     return currentProductAmount;
   }
 
-  // Method made that inserts (name, password, userName, and email)
-  // from employee text fields into Employee database (called in createUser)
+  /**
+   * Adds employee to the Employee database.
+   *
+   * @param name     Users entered name.
+   * @param password Users entered password.
+   * @param userName Generated by entered name.
+   * @param email    Generated by entered name.
+   */
   public void addEmployeeToDB(StringBuilder name, String password, String userName, String email) {
 
-    final String JDBC_DRIVER = "org.h2.Driver";
-    final String DB_URL = "jdbc:h2:./res/Productdb";
+    final String Jdbc_Driver = "org.h2.Driver";
+    final String Db_Url = "jdbc:h2:./res/Productdb";
 
     //  Database credentials
-    final String USER = "";
-    final String PASS = reverseString(getDBPassword());
+    final String user = "";
+    final String pass = reverseString(getDbPassword());
     Connection conn;
     Statement stmt;
 
     try {
       // STEP 1: Register JDBC driver
-      Class.forName(JDBC_DRIVER);
+      Class.forName(Jdbc_Driver);
 
       //STEP 2: Open a connection
-      conn = DriverManager.getConnection(DB_URL, USER, PASS);
+      conn = DriverManager.getConnection(Db_Url, user, pass);
 
       //STEP 3: Execute a query
       stmt = conn.createStatement();
@@ -877,16 +1039,20 @@ public class Controller {
 
   }
 
-  // Method made to access EMPLOYEE DB to check if name exist to avoid duplicate names
-  // (called in createUser)
+  /**
+   * Checks if name entered by new employee exists.
+   *
+   * @param name Name entered by employee.
+   * @return False if user does exists, True if user does not exists. (Logic is backwards).
+   */
   public boolean checkIfNameExists(String name) {
 
-    final String JDBC_DRIVER = "org.h2.Driver";
-    final String DB_URL = "jdbc:h2:./res/Productdb";
+    final String Jdbc_Driver = "org.h2.Driver";
+    final String Db_Url = "jdbc:h2:./res/Productdb";
 
     //  Database credentials
-    final String USER = "";
-    final String PASS = reverseString(getDBPassword());
+    final String user = "";
+    final String pass = reverseString(getDbPassword());
     Connection conn;
     PreparedStatement stmt;
 
@@ -894,26 +1060,29 @@ public class Controller {
 
     try {
       // STEP 1: Register JDBC driver
-      Class.forName(JDBC_DRIVER);
+      Class.forName(Jdbc_Driver);
 
       //STEP 2: Open a connection
-      conn = DriverManager.getConnection(DB_URL, USER, PASS);
+      conn = DriverManager.getConnection(Db_Url, user, pass);
 
       // SQL Where to filter product_id to find exact product name needed
       String sql = "Select * FROM EMPLOYEE WHERE NAME = ?";
 
       stmt = conn.prepareStatement(sql);
 
+      // Set name that must be found
       stmt.setString(1, name);
 
       ResultSet rs = stmt.executeQuery();
 
+      // Find one instance if it exists.
       if (rs.next()) {
 
         String nameFromDB = rs.getString(1);
 
         // If name from database equals name given set userExist to false
-        // (userExist = false means user is in database already logic is backwards)
+        // (userExist = false means user is in the database logic is backwards but avoid duplicate
+        // lines)
         if (nameFromDB.equals(name)) {
 
           userExists = false;
@@ -933,16 +1102,22 @@ public class Controller {
     return userExists;
   }
 
-  // Method made to access EMPLOYEE DB to check user credentials for user login
-  // (called in loginUser)
+  /**
+   * Checks if name and password entered by employee is correct.
+   *
+   * @param name     Employee name input.
+   * @param password Employee password input.
+   * @return True if name and password match instance in employee database, False if name and
+   *         password do not match instance in employee database.
+   */
   public boolean checkUserCredentials(String name, String password) {
 
-    final String JDBC_DRIVER = "org.h2.Driver";
-    final String DB_URL = "jdbc:h2:./res/Productdb";
+    final String Jdbc_Driver = "org.h2.Driver";
+    final String Db_Url = "jdbc:h2:./res/Productdb";
 
     //  Database credentials
-    final String USER = "";
-    final String PASS = reverseString(getDBPassword());
+    final String user = "";
+    final String pass = reverseString(getDbPassword());
     Connection conn;
     PreparedStatement stmt;
 
@@ -950,16 +1125,17 @@ public class Controller {
 
     try {
       // STEP 1: Register JDBC driver
-      Class.forName(JDBC_DRIVER);
+      Class.forName(Jdbc_Driver);
 
       //STEP 2: Open a connection
-      conn = DriverManager.getConnection(DB_URL, USER, PASS);
+      conn = DriverManager.getConnection(Db_Url, user, pass);
 
       // SQL Where to filter product_id to find exact product name needed
       String sql = "Select * FROM EMPLOYEE WHERE NAME = ? AND PASSWORD = ?";
 
       stmt = conn.prepareStatement(sql);
 
+      // Set name and password that must be found
       stmt.setString(1, name);
       stmt.setString(2, password);
 
@@ -991,12 +1167,18 @@ public class Controller {
     return userExists;
   }
 
-  // Checks if string passed is an integer
+  /**
+   * Check if string entered in comboBox is a number.
+   *
+   * @param amount Input entered in comboBox by employee.
+   * @return True if input is an integer, False if input is not an integer.
+   */
   public boolean checkIfInt(String amount) {
 
     try {
+      // Warning quantityAmount is never used but it checks if it can parse String amount
+      // allowing the catch to work without it string would never be checked.
       int quantityAmount = Integer.parseInt(amount);
-      System.out.println(quantityAmount);
       return true;
     } catch (NumberFormatException e) {
       lblRecordError.setText("Error: " + amount + " is not an integer");

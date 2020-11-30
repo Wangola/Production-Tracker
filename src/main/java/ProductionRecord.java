@@ -1,23 +1,42 @@
 import java.sql.Timestamp;
 
+/**
+ * Represents a production recorded by employee. An employee can record multiple production records
+ *
+ * @author William Angola
+ */
 public class ProductionRecord {
 
   //Fields
+  /**
+   * The production number.
+   */
   private int productionNumber = 0;
-  // Changed int ProductID to a Generic <T> to accept any Type to be declared later
-  private final int productID;
-  private final String serialNumber;
-  private final Timestamp dateProduced;
 
-  // Constructor (Never Used)
-//  ProductionRecord(int productID) {
-//    productionNumber = 0;
-//    serialNumber = "0";
-//    this.productID = productID;
-//    dateProduced = new Timestamp(System.currentTimeMillis());
-//  }
+  /**
+   * The product id.
+   */
+  private int productID;
 
-  // Overloaded Constructor (not used because of new overloaded constructor that accepts product below)
+  /**
+   * The production serial number.
+   */
+  private String serialNumber;
+
+  /**
+   * The record date produced.
+   */
+  private Timestamp dateProduced;
+
+
+  /**
+   * ProductionRecord constructor which implements given production info.
+   *
+   * @param productionNumber Production number.
+   * @param productID        Product id.
+   * @param serialNumber     Production serial number
+   * @param dateProduced     Date recorded.
+   */
   ProductionRecord(int productionNumber, int productID, String serialNumber,
       Timestamp dateProduced) {
     this.productionNumber = productionNumber;
@@ -27,13 +46,14 @@ public class ProductionRecord {
   }
 
 
-  // Overloaded Constructor that accepts Product object and int which holds number of items
+  /**
+   * Overloaded productionRecord constructor which implements a product object and number of items.
+   *
+   * @param product     Product object.
+   * @param numbOfItems Current number of items for specified product.
+   */
   ProductionRecord(Product product, int numbOfItems) {
-    //productionNumber = productionNumber+1;
     dateProduced = new Timestamp(System.currentTimeMillis());
-
-    // Gives unsafe warning when using this type of assigning (but outputs name of
-    // product in place of productID
 
     // Gets ID of current selected Item
     productID = product.getId();
@@ -44,12 +64,17 @@ public class ProductionRecord {
   }
 
 
+  /**
+   * Generates productionLog format with specified product name by accessing product database and
+   * comparing productID's.
+   *
+   * @return ProductionRecord info formatted.
+   */
   // toString()
   public String toString() {
     // Created object of controller class to access dataBaseNames to print out name in toString
     // textArea.
     Controller name = new Controller();
-    // Pulls set password from text file
 
     Widget productName = name.getDataBaseNames(productID);
 
@@ -59,45 +84,79 @@ public class ProductionRecord {
         + " Date: " + dateProduced + "\n";
   }
 
-  // Start of Accessors
+  /**
+   * Gets production number (Currently never used).
+   *
+   * @return productionNumber.
+   */
+  int getProductionNumber() {
+    return productionNumber;
+  }
 
-  //Getters (Never Used)
-//  int getProductionNumber() {
-//    return productionNumber;
-//  }
-
+  /**
+   * Gets product id.
+   *
+   * @return productID.
+   */
   int getProductID() {
     return productID;
   }
 
+  /**
+   * Gets serial number.
+   *
+   * @return serialNumber.
+   */
   String getSerialNumber() {
     return serialNumber;
   }
 
+  /**
+   * Gets date produced.
+   *
+   * @return dateProduced.
+   */
   Timestamp getDateProduced() {
     return dateProduced;
   }
 
-  //Setters (Never Used)
-//  void setProductionNumber(int productionNumber) {
-//    this.productionNumber = productionNumber;
-//  }
+  /**
+   * Sets this production number to new production number (Currently never used).
+   *
+   * @param productionNumber New production number.
+   */
+  void setProductionNumber(int productionNumber) {
+    this.productionNumber = productionNumber;
+  }
 
-  // (Never Used)
-//  void setProductID(int productID) {
-//    this.productID = productID;
-//  }
 
-  // (Never Used)
-//  void setSerialNumber(String serialNumber) {
-//    this.serialNumber = serialNumber;
-//  }
+  /**
+   * Sets this product id to new product id (Currently never used).
+   *
+   * @param productID New product id.
+   */
+  void setProductID(int productID) {
+    this.productID = productID;
+  }
 
-  // (Never Used)
-//  void setDateProduced(Timestamp dateProduced) {
-//    this.dateProduced = dateProduced;
-//  }
 
-  // End of Accessors
+  /**
+   * Sets this serial number to new serial number (Currently never used).
+   *
+   * @param serialNumber New serial number.
+   */
+  void setSerialNumber(String serialNumber) {
+    this.serialNumber = serialNumber;
+  }
+
+
+  /**
+   * Sets this date produced to new date produced (Currently never used).
+   *
+   * @param dateProduced New date produced.
+   */
+  void setDateProduced(Timestamp dateProduced) {
+    this.dateProduced = new Timestamp(dateProduced.getTime());
+  }
 
 }

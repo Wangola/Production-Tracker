@@ -1,86 +1,67 @@
-# Production Project
 
-## Overview
-Creator: William Angola.\
-Project that uses a GUI page to control/use data within a full database for the purpose of production.
+# Production Tracker Project
 
-## Code
+* What is this project?
+	* This is a production tracker project that was built using JavaFX and focused on utilizing H2 databases to store values entered by employees. Employees are allowed to store products into these databases and produce an updated production log if a change occurs. Coding style used for this program was object oriented with its focus on inheritance, abstraction, encapsulation, and polymorphism. (4 pillars)
+* Who made this project?
+	* Author: William Angola
+	* Created independently with some tips and hints from: TA's, Professor, and class mates.
+* When did you make it?
+	* This was made through out my fall semester in 2020,  as a Junior I felt slightly experienced when starting this project but after multiple errors and learning of concepts I can gracefully say I am moderately experienced. You can always learn something new.
+* Why did you make it?
+	* This was made as a semester long project which had it's ups and downs of productivity. This project reflects me as a person who focuses too much on functionality and not enough on colors and display, which I need to work on. It taught me how to deal with programming frustration with meditation and question/write up logical steps rather than jumping right in.
+* Where did you make it?
+	* Thankfully in the comfort of my own home due to covid, but the university I attend is Florida Gulf Coast University. This project was assigned in my COP 3003 Object Oriented Programming course.
 
-##### **build.gradle** (09/17/2020)
-default gradle file with group id: io.github.Wangola
 
-##### **Main.java** (09/17/2020)
-default java main using grade with its only edit being.
+## Demonstration
 
-```
-primaryStage.setTitle("Production Project");
-```
+![Production Project Final gif](https://user-images.githubusercontent.com/69935977/100537222-83537c80-31f4-11eb-9d75-486158cac9f9.gif)
 
-##### **Controller.java** (09/17/2020)
-Handles almost all code for this project by creating methods and fields for objects in sceneBuilder\
-*Controller Skeleton (class, field, constructor, and methods)*
-```
-public class Controller {
 
-  @FXML
-  private TextField txtProductName;
 
-  @FXML
-  private TextField txtManufacturer;
+## Documentation
 
-  @FXML
-  private ChoiceBox<String> chbItemType;
+## Diagrams
 
-  @FXML
-  private Button btnAddProduct;
+![Class diagram from Production Project](https://user-images.githubusercontent.com/69935977/100548097-82443e80-3238-11eb-897e-098a3ef2dd58.PNG)
 
-  @FXML
-  private ComboBox<String> cboQuantity;
+![Database Diagram from Production Project](https://user-images.githubusercontent.com/69935977/100548102-8bcda680-3238-11eb-9882-70bda2f67b84.PNG)
 
-  @FXML
-  private Button btnRecordProduct;
+## Getting Started
 
-  @FXML
-  void addProduct(ActionEvent event) {
-  }
 
-  @FXML
-  void recordProduct(ActionEvent event) {
-  }
-  
-   public void initialize() {
-    //for loop linked to a comboBox allowing to hold 10 options in the
-    // form of 1-10 and can be edited.
-    for (int count = 1; count <= 10; count++) {
-      cboQuantity.getItems().add(String.valueOf(count));
-    }
+## Built With
+* IDE used: 
+	* Intellij iDEA Ultimate 2020.2, focusing on Java development and created by JetBrains.
+* Other software used:
+	* Scene Builder to create GUI interactions.
+* Resources used:
+	* Cave of Programming, Stack OverFlow, Youtube.
 
-  }
+## Contributing
 
-  public void connectToDb() {
-  // '"+variable+"' Inserts values into product database by taking the user inputs.
-      String insertSql = "INSERT INTO Product(product_name, product_type, manufacturer) "
-          + "VALUES ( '" + productName + "', '" + itemType + "', '" + manufacturerName + "' );";
 
-      stmt.executeUpdate(insertSql);
+## Author
 
-  // SExecuting this query will select all the collumns in the product data base and
-  // return it resultSet.
-      String sql = "Select product_name, product_type, manufacturer"
-          + " FROM PRODUCT";
+* William Angola
 
-      ResultSet rs = stmt.executeQuery(sql);
-  }
-```
+## License
 
-##### **sample.fxml** (09/17/2020)
-sample.fxml is linked directly to sceneBuilder and any progress saved within sceneBuilder and processed and coded into the file.
 
-##### **CSS.css** (09/17/2020)
-Only purpose is to create a white background for the GUI page.
-```
-.root {
-  -Fx-background-color: white;
-}
-```
+## Acknowledgments
+* Web sites utilized:
+	* Cave of Programming, Stack OverFlow, Youtube.
+* Classmates who helped:
+	* Jaysson Balbuena
+	* Paul Basso
+* Your professor or TA if they helped:
+	* Professor: Scott Vanselow
+	* TA: Vladimir Hardy
+
+## History
+
+Information about what has changed.
+
+## Key Programming Concepts Utilized
 

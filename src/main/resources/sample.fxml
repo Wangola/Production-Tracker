@@ -63,7 +63,7 @@
            <Font size="16.0" />
          </font>
        </Label>
-       <Button layoutX="181.0" layoutY="276.0" mnemonicParsing="false" onAction="#loginUser" prefHeight="32.0" prefWidth="99.0" text="Login" />
+       <Button layoutX="166.0" layoutY="278.0" mnemonicParsing="false" onAction="#loginUser" prefHeight="32.0" prefWidth="106.0" text="Login" />
        <Label fx:id="lblLogin" layoutX="488.0" layoutY="308.0">
          <font>
            <Font size="16.0" />
@@ -95,7 +95,7 @@
           <Font size="16.0" />
         </font>
       </Label>
-      <Button layoutX="181.0" layoutY="276.0" mnemonicParsing="false" onAction="#createUser" prefHeight="32.0" prefWidth="99.0" text="Create User" />
+      <Button layoutX="166.0" layoutY="278.0" mnemonicParsing="false" onAction="#createUser" prefHeight="32.0" prefWidth="106.0" text="Create Employee" />
       <Label layoutX="33.0" layoutY="422.0" text="Enter your complete name to be valid">
         <font>
           <Font size="14.0" />
@@ -155,7 +155,7 @@
           <TableColumn fx:id="idCol" prefWidth="135.0" text="Id" />
           <TableColumn fx:id="productCol" prefWidth="135.0" text="Product Name" />
           <TableColumn fx:id="manufacturerCol" prefWidth="135.0" text="Manufacturer" />
-          <TableColumn fx:id="ItemCol" prefWidth="135.0" text="Item Type" />
+          <TableColumn fx:id="itemCol" prefWidth="135.0" text="Item Type" />
         </columns>
       </TableView>
       <Label layoutX="570.0" layoutY="14.0" text="Existing Products ">

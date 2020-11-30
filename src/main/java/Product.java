@@ -1,68 +1,139 @@
+/**
+ * Represents a product created by employee. An employee can create multiple products when Widget
+ * class extends product and interface shares methods due to abstraction.
+ *
+ * @author William Angola
+ */
 public abstract class Product implements Item {
 
-  /*Notes
+  // NOTES------------------------------------------------------------------------------------------
+
   // Abstract are used to extend classes that will be somewhat related
   // Object is an instance of a class
   // Class that is not abstract is called a concrete class
-  */
+
+  // NOTES------------------------------------------------------------------------------------------
 
   // Fields
-  private int Id;
-  private final ItemType Type;
-  private final String Manufacturer;
-  private final String Name;
+  /**
+   * The product id.
+   */
+  private int id;
 
-  // Constructor
+  /**
+   * The product type.
+   */
+  private final ItemType type;
+
+  /**
+   * The product manufacturer.
+   */
+  private String manufacturer;
+
+  /**
+   * The product name.
+   */
+  private String name;
+
+  /**
+   * Product constructor which implements given product info.
+   *
+   * @param name         Product name.
+   * @param manufacturer Product manufacturer.
+   * @param type         Product type.
+   */
   Product(String name, String manufacturer, ItemType type) {
-    this.Name = name;
-    this.Manufacturer = manufacturer;
-    this.Type = type;
+    this.name = name;
+    this.manufacturer = manufacturer;
+    this.type = type;
   }
 
-  // Overloaded constructor for DB
+  /**
+   * Overloaded product constructor which implements all given product info.
+   *
+   * @param id           Product id.
+   * @param name         Product name.
+   * @param manufacturer Product manufacturer.
+   * @param type         Product type.
+   */
   Product(int id, String name, String manufacturer, ItemType type) {
-    this.Id = id;
-    this.Name = name;
-    this.Manufacturer = manufacturer;
-    this.Type = type;
+    this.id = id;
+    this.name = name;
+    this.manufacturer = manufacturer;
+    this.type = type;
   }
 
+  /**
+   * Generates product format for GUI.
+   *
+   * @return Product info formatted.
+   */
   // toString (returns data)
   public String toString() {
-    return "Name: " + Name + "\n" + "Manufacturer: " + Manufacturer + "\n" + "Type: " + Type;
+    return "Name: " + name + "\n" + "Manufacturer: " + manufacturer + "\n" + "Type: " + type;
   }
 
-  // Completing methods from interface Item (setters and getters)
-  // Getters
+  /**
+   * Gets product id.
+   *
+   * @return Id.
+   */
   public int getId() {
-    return Id;
+    return id;
   }
 
+  /**
+   * Gets product type.
+   *
+   * @return Type.
+   */
   public ItemType getType() {
-    return Type;
+    return type;
   }
 
+  /**
+   * Gets product manufacturer.
+   *
+   * @return Manufacturer.
+   */
   public String getManufacturer() {
-    return Manufacturer;
+    return manufacturer;
   }
 
+  /**
+   * Gets product name.
+   *
+   * @return Name.
+   */
   public String getName() {
-    return Name;
+    return name;
   }
 
-  //Setters (Never Used)
-//  public void setName(String name) {
-//    this.Name = name;
-//  }
+  /**
+   * Sets this products name to new name.
+   *
+   * @param name New product name.
+   */
+  public void setName(String name) {
+    this.name = name;
+  }
 
-  // (Never Used)
-//  public void setManufacturer(String manufacturer) {
-//    this.Manufacturer = manufacturer;
-//  }
+  /**
+   * Sets this product manufacturer to new manufacturer.
+   *
+   * @param manufacturer New product manufacturer.
+   */
+  public void setManufacturer(String manufacturer) {
+    this.manufacturer = manufacturer;
+  }
 
-  //Never used
-//  public void setId(int Id) {
-//    this.Id = Id;
-//  }
+  /**
+   * Sets this product id to new id (Currently never used).
+   *
+   * @param id New product id.
+   */
+  public void setId(int id) {
+    this.id = id;
+  }
 
 }
