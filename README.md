@@ -76,3 +76,19 @@ Information about what has changed.
 
 ## Key Programming Concepts Utilized
 
+Key Programming Concepts Utilized in this project:
+* Inheritance: a notion by which properties of a subclass are considered the responsibility of a superclass. 
+* Encapsulation: software development technique consisting of isolating a system function and provide specifications to a module. 
+* Abstraction: a view of an object that focuses information relevant to a purpose and ignores the rest. 
+* Polymorphism: allows functions to take many forms allowing the creation of multiple types of objects/classes.
+
+Areas of the project where these concepts were applied:
+ * Abstraction was used in the creation of Product class with its implementation of Item Type to hide information meaning total abstraction.
+ * Inheritance was applied to 3 classes (Widget, AudioPlayer, and MoviePlayer) these classes were able to interact with its parent class using its super constructor.
+ * Polymorphism occurred when using Screen to have multiple MonitorTypes while inheriting from ScreenSpec and the overloading of constructors in ProductionRecord.
+ * Encapsulation took place when the overloaded constructor in ProducitonRecord accepted an object of Product to create a unique serial number.
+
+Additional Concepts used:
+* ArrayList to store Product and ProductionRecord objects throughout initialize and creation of a product.
+* Regular Expression (Regex) to restrict and validate employee name and passwords.
+* Recursion to reverse the database password throughout the program for specific access.
