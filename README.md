@@ -74,7 +74,7 @@ If you wish to contribute to this project be sure to fork this repository and fo
 
 ## History
 
-Information about what has changed.
+Will be updated if changes occur.
 
 ## Key Programming Concepts Utilized
 
