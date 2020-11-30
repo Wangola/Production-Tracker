@@ -19,7 +19,7 @@ This Production Tracker project provides any wanting facility the solution to ca
 
 ## Demonstration
 
-![Production Project Final gif](https://user-images.githubusercontent.com/69935977/100537222-83537c80-31f4-11eb-9d75-486158cac9f9.gif)
+![Production Project Final Gif](pictures/Production%20Project%20Final.gif)
 
 
 ## Documentation
@@ -27,10 +27,9 @@ This Production Tracker project provides any wanting facility the solution to ca
 
 ## Diagrams
 
-![Class diagram from Production Project](https://user-images.githubusercontent.com/69935977/100548097-82443e80-3238-11eb-897e-098a3ef2dd58.PNG)
+![Class Diagram](pictures/Class%20diagram.PNG)
 
-![Database Diagram from Production Project](https://user-images.githubusercontent.com/69935977/100548102-8bcda680-3238-11eb-9882-70bda2f67b84.PNG)
-
+![Database Diagram](pictures/Database%20diagram.PNG)
 ## Getting Started
 
 If you wish to run this project on your local machine. Follow these steps:
