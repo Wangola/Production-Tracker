@@ -65,10 +65,10 @@ public class Controller {
   private Label lblLogin;
 
   /**
-   * Text field handling full name in employee login.
+   * Text field handling username in employee login.
    */
   @FXML
-  private TextField txtPersonalName;
+  private TextField txtUserName;
 
   /**
    * Text field handling password in employee login.
@@ -381,21 +381,21 @@ public class Controller {
     lblLogin.setVisible(true);
 
     // Fields made to get text from textFields
-    String name = txtPersonalName.getText();
+    String userName = txtUserName.getText();
     String password = txtPassword.getText();
 
     boolean userExist;
 
     // Checking if fields are empty else continue
-    if (name.isEmpty() && password.isEmpty()) {
+    if (userName.isEmpty() && password.isEmpty()) {
       lblLogin.setText("Please fill in both text fields");
       // Sets focus on the text field
-      txtPersonalName.requestFocus();
+      txtUserName.requestFocus();
       visiblePause.play();
-    } else if (name.isEmpty()) {
+    } else if (userName.isEmpty()) {
       lblLogin.setText("Please fill in Full name");
       // Sets focus on the text field
-      txtPersonalName.requestFocus();
+      txtUserName.requestFocus();
       visiblePause.play();
     } else if (password.isEmpty()) {
       lblLogin.setText("Please fill in Password");
@@ -403,11 +403,11 @@ public class Controller {
       visiblePause.play();
     } else {
 
-      userExist = checkUserCredentials(name, password);
+      userExist = checkUserCredentials(userName, password);
 
       if (userExist) {
 
-        lblWelcomeBack.setText("Welcome! " + name);
+        lblWelcomeBack.setText("Welcome! " + userName);
 
         lblLogin.setText("You now have access to the final three tabs");
         visiblePause.play();
@@ -422,12 +422,12 @@ public class Controller {
         tabWelcome.setDisable(true);
       } else {
         lblLogin.setText("Incorrect Name or Password double check credentials");
-        txtPersonalName.requestFocus();
+        txtUserName.requestFocus();
         lblWelcomeBack.setText("");
         visiblePause.play();
       }
 
-      txtPersonalName.clear();
+      txtUserName.clear();
       txtPassword.clear();
 
     }
@@ -551,7 +551,7 @@ public class Controller {
 
     try {
       BufferedReader reader = new BufferedReader(new FileReader(
-          "C:\\Users\\William\\IdeaProjects\\Production\\src\\main\\java\\dbPassword.txt"));
+          "res/dbPassword.txt"));
 
       StringBuilder content = new StringBuilder();
       String line;
@@ -1107,12 +1107,12 @@ public class Controller {
   /**
    * Checks if name and password entered by employee is correct.
    *
-   * @param name     Employee name input.
+   * @param userName Employee userName input.
    * @param password Employee password input.
    * @return True if name and password match instance in employee database, False if name and
    *         password do not match instance in employee database.
    */
-  public boolean checkUserCredentials(String name, String password) {
+  public boolean checkUserCredentials(String userName, String password) {
 
     final String Jdbc_Driver = "org.h2.Driver";
     final String Db_Url = "jdbc:h2:./res/Productdb";
@@ -1133,24 +1133,24 @@ public class Controller {
       conn = DriverManager.getConnection(Db_Url, user, pass);
 
       // SQL Where to filter product_id to find exact product name needed
-      String sql = "Select * FROM EMPLOYEE WHERE NAME = ? AND PASSWORD = ?";
+      String sql = "Select * FROM EMPLOYEE WHERE USERNAME = ? AND PASSWORD = ?";
 
       stmt = conn.prepareStatement(sql);
 
       // Set name and password that must be found
-      stmt.setString(1, name);
+      stmt.setString(1, userName);
       stmt.setString(2, password);
 
       ResultSet rs = stmt.executeQuery();
 
       if (rs.next()) {
 
-        String nameFromDB = rs.getString(1);
+        String userNameFromDB = rs.getString(3);
         String passwordFromDB = rs.getString(2);
 
         // If name and password match set userExist to true
         // (this logic is valid compared to checkIfNameExistLogic)
-        if (nameFromDB.equals(name) && passwordFromDB.equals(password)) {
+        if (userNameFromDB.equals(userName) && passwordFromDB.equals(password)) {
 
           userExists = true;
 
