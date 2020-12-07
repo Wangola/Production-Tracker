@@ -33,15 +33,20 @@ This Production Tracker project provides any wanting facility the solution to ca
 ## Getting Started
 
 If you wish to run this project on your local machine. Follow these steps:
- * Download [Intellij IDEA Ultimate Version](https://www.jetbrains.com/idea/download/#section=windows) and download the latest version of [JavaFX](https://gluonhq.com/products/javafx/) .
+ * Download [Intellij IDEA Ultimate Version](https://www.jetbrains.com/idea/download/#section=windows) and download the latest version of [JavaFX SDK](https://gluonhq.com/products/javafx/) .
  * Once both are download watch [this](https://www.youtube.com/watch?v=LFvRMmkXZk0) video to set up SDK files in IntelliJ. 
  * Once set up it is complete return to IntelliJ start up page and select (get from Version Control) it will ask for a URL and input the URL from this GitHub website and hit clone. 
- * Once project is cloned you are going to want to change one line of code in the Controller class.
- * Find the getDbPassword method and you are gonna want to change the path for the dbPassword.txt file to match to avoid a nullException error. 
-	 * Example: 
-		 * Current path: "C:\\Users\\William\\IdeaProjects\\Production\\src\\main\\java\\dbPassword.txt"
-		 * Changed to: [your path] + \\dbPassword.txt
-* Once all these steps are complete you should be able to run this project on your local machine.
+ * Once project is cloned you are going to want to change the VM Options of the Main class. Go to Run -> Edit Configurations and copy this:
+ --------------------------------------------------------------------------------------------------
+ --module-path
+C:\PathToYourJavaFXSDK\lib
+--add-modules
+javafx.controls,javafx.fxml,javafx.base,javafx.media,javafx.graphics,javafx.swing,javafx.web
+
+---------------------------------------------------------------------------------------------------
+into the VM Option with your Path to your recently downloaded JavaFX SDK.
+
+Once all of this is complete the program should run smoothly.
 
 ## Built With
 * IDE used: 
